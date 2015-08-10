@@ -1,0 +1,155 @@
+$border-radius: 6px;
+$border-color: $lines-gray;
+
+/**
+*
+* Tooltip with selectable options
+*
+**/
+
+.tooltip-options{
+    display: none;
+}
+
+.tool-container {
+    @include box-shadow(0px 5px 5px 0px rgba($border-color, 0.5));
+    @include border-radius($border-radius);
+    background-color: white;
+    position: absolute;
+    min-width: 150px;
+    max-width: 350px;
+    box-sizing: border-box;
+    &.w-border{
+        border: 1px solid $border-color;
+    }
+}
+
+.tool-items {
+    padding: 10px;
+}
+
+.tool-item {
+    display: block;
+    padding: 10px 15px;
+    [class^="icon-"]{
+        margin-left: -2px;
+    }
+
+}
+
+.tool-item{
+    &.selected, &:hover, &.is-active  {
+        background-color: $lighter-gray;
+    }
+}
+
+/*
+.tool-top .tool-item:last-child:hover, .tool-bottom .tool-item:last-child:hover {
+    @include border-corner-radius("bottom", "left", $border-radius);
+    @include border-corner-radius("bottom", "right", $border-radius);
+    &:hover{
+        @include border-corner-radius("bottom", "left", $border-radius);
+        @include border-corner-radius("bottom", "right", $border-radius);
+    }
+}*/
+
+.tool-container .arrow  {
+    width:0;
+    height:0;
+    position: absolute;
+    border-width:7px;
+    border-style:solid;
+    &:before{
+        content:'';
+        width:0;
+        height:0;
+        position: absolute;
+        border-width:7px;
+        border-style:solid;
+        z-index: -1;
+    }
+}
+
+.tool-container.tool-top .arrow {
+    border-color: white transparent transparent;
+    left: 50%;
+    bottom: -14px;
+    margin-left: -7px;
+    &:before{
+        border-color: $border-color transparent transparent;
+        left: 50%;
+        bottom: -8px;
+        margin-left: -7px;
+    }
+}
+
+.tool-container.tool-bottom .arrow {
+    border-color: transparent transparent white;
+    left: 15px;
+    top: -14px;
+    margin-left: -7px;
+    &:before{
+        border-color: transparent transparent $border-color;
+        left: 50%;
+        top: -8px;
+        margin-left: -7px;
+    }
+}
+
+.tool-container.tool-left .arrow {
+    border-color: transparent transparent transparent white;
+    top: 50%;
+    right: -14px;
+    margin-top: -7px;
+}
+
+.tool-container.tool-right{
+    .arrow {
+        border-color: transparent white transparent transparent;
+        top: 50%;
+        left: -14px;
+        margin-top: -7px;
+        &:before{
+            border-color: transparent $border-color transparent transparent;
+            top: 50%;
+            left: -7px;
+            margin-top: -7px;
+        }
+    }
+}
+
+
+/**
+*
+* Tooltip with message
+*
+**/
+
+.tool-message{
+    @include transition;
+    position: absolute;
+    z-index: 9;
+    margin-top: 10px;
+    margin-left: 5px;
+    opacity: 0;
+    display: none;
+    &.tool-message-error{
+        font-size: 13px;
+        background-color: $coral-red;
+        color: white;
+        .arrow{
+            border-color: transparent transparent $coral-red;
+        }
+    }
+}
+.tool-message-content{
+    padding: 5px 10px;
+}
+
+/**
+ * List inside the tooltip
+ */
+.tool-list{
+    list-style: disc inside none;
+    color: $dark-gray;
+}

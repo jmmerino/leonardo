@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'proxima-nova';
+
+    src: url('/bundles/selltagmain/fonts/proximanova-light-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-light-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-light-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-light-webfont.ttf') format('truetype');
+
+    // src: url("/bundles/selltagmain/fonts/ProximaNova-Light.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima-nova';
+
+    src: url('/bundles/selltagmain/fonts/proximanova-lightitalic-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-lightitalic-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-lightitalic-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-lightitalic-webfont.ttf') format('truetype');
+
+    // src: url("/bundles/selltagmain/fonts/ProximaNova-LightItalic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('/bundles/selltagmain/fonts/proximanova-regular-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-regular-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-regular-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/bundles/selltagmain/fonts/ProximaNova-RegItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('/bundles/selltagmain/fonts/proximanova-sbold-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-sbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-sbold-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-sbold-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-sbold-webfont.ttf') format('truetype');
+
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('/bundles/selltagmain/fonts/proximanova-bold-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-bold-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-bold-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-bold-webfont.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+// @font-face {
+//     font-family: 'proxima-nova';
+//     src: url("/bundles/selltagmain/fonts/ProximaNova-BoldIt.otf") format("opentype");
+//     font-weight: 500;
+//     font-style: italic;
+// }
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('/bundles/selltagmain/fonts/proximanova-extrabold-webfont.eot');
+    src: url('/bundles/selltagmain/fonts/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/selltagmain/fonts/proximanova-extrabold-webfont.woff2') format('woff2'),
+         url('/bundles/selltagmain/fonts/proximanova-extrabold-webfont.woff') format('woff'),
+         url('/bundles/selltagmain/fonts/proximanova-extrabold-webfont.ttf') format('truetype');
+
+    font-weight: 600;
+    font-style: normal;
+}

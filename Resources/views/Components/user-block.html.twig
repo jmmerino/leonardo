@@ -1,0 +1,58 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "user" %}
+
+<div class="user-block_header user-bg-color">
+    <p class="user-block_title">
+
+        {{ 'meet_seller'|trans() }}
+    </p>
+    <div class="row b-margin-20">
+        {{
+            macros.ui_component('user-profile',
+                {
+                    "user": user,
+                    "size": "large",
+                    "content": "city",
+                    "extra_class": "user-profile_vertical"
+                })
+        }}
+    </div>
+    <div class="row b-margin-20">
+        <div class="grid-0">
+            <div class="col-one-half centered">
+                <a href="{{ macros.user_url(user.userProfile.vanityUrl, user.id)|trim }}?status=available" class="user-block_tab-link on-left">
+                    <span class="user-block_tab-content">
+                        <i class="icon-ads-for-sale"></i>
+                        <span class="user-block_tabs_link-number">
+                            {{ user.sellingCount }}
+                        </span>
+                        &nbsp;
+                        <span class="user-block_tabs_link-text">
+                            {% transchoice user.sellingCount %}
+                               tabs.ads_selling_short
+                            {% endtranschoice %}
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-one-half centered">
+                <a href="{{ macros.user_url(user.userProfile.vanityUrl, user.id)|trim }}?status=sold" class="user-block_tab-link">
+                    <span class="user-block_tab-content">
+                        <i class="icon-ads-sold"></i>
+
+                        {% if user.soldCount > 0 %}
+                            <span class="user-block_tabs_link-number">
+                                {{ user.soldCount }}
+                            </span>
+                        {% endif %}
+                        &nbsp;
+                        <span class="user-block_tabs_link-text">
+                            {% transchoice user.soldCount %}
+                               tabs.ads_sold_short
+                            {% endtranschoice %}
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

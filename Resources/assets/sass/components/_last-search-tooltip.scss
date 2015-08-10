@@ -1,0 +1,39 @@
+
+.search_input_tooltip_wrapper{
+    position: relative;
+    width: 100%;
+}
+.search_input_tooltip_header{
+    @include border-top-left-radius(3px);
+    @include border-top-right-radius(3px);
+    border-bottom: 1px solid $lines-gray;
+    padding: 10px;
+}
+.search_input_tooltip_header_link{
+    font-weight: 400;
+}
+.search_input_tooltip_content{
+    padding: 10px;
+}
+.search_input_tooltip{
+    @include transition;
+    @include transition-duration(0.2s);
+    @include border-radius(5px);
+    @include transform(translateY(-10px));
+    @include box-shadow(0px 5px 5px 0px rgba($lines-gray, 0.5));
+    border: 1px solid $lines-gray;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    top: 38px;
+    left: 0;
+    z-index: 101;
+    visibility: hidden;
+    opacity: 0;
+    .is-active & , &:hover{
+        @include transform(translateY(0px));
+        opacity: 1;
+        visibility: visible;
+    }
+}
+

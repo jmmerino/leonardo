@@ -1,0 +1,88 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <h2 class="styleguide-component-main-title">Iconos</h2>
+    </div>
+
+    <div class="row">
+        <h3 class="styleguide-component-subtitle">Default size</h3>
+    </div>
+
+    <div class="grid-20">
+    {% for icon in icons %}
+        <div class="col-one-fifth w-bottom-margin" >
+            <a href="#" class="lnk-dark-gray">
+                <i class="{{ icon.class }}"></i>
+                {{icon.name}}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+        <h3 class="styleguide-component-subtitle">2x size</h3>
+    </div>
+    <div class="grid-20">
+    {% for icon in icons %}
+        <div class="col-one-quarter w-bottom-margin" >
+            <a href="#" class="lnk-dark-gray">
+                <i class="{{ icon.class }} icon-2x"></i>
+                {{icon.name}}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+        <h3 class="styleguide-component-subtitle">3x size</h3>
+    </div>
+    <div class="grid-20">
+    {% for icon in icons %}
+        <div class="col-one-quarter w-bottom-margin" >
+            <a href="#" class="lnk-dark-gray">
+                <i class="{{ icon.class }} icon-3x"></i>
+                {{icon.name}}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+        <h3 class="styleguide-component-subtitle">4x size</h3>
+    </div>
+    <div class="grid-20">
+    {% for icon in icons %}
+        <div class="col-one-quarter w-bottom-margin" >
+            <a href="#" class="lnk-dark-gray">
+                <i class="{{ icon.class }} icon-4x"></i>
+                {{icon.name}}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="row">
+        <h3 class="styleguide-component-subtitle">With button</h3>
+    </div>
+    <div class="grid-20">
+    {% for icon in icons %}
+        <div class="col-one-fifth w-bottom-margin" >
+            {{ icon.name}}
+            <br>
+            {{
+                macros.ui_component("button", {
+                    "text": "Botón",
+                    "icon": icon.class
+                } )
+            }}
+        </div>
+    {% endfor %}
+    </div>
+
+
+{% endblock %}

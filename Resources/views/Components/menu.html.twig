@@ -1,0 +1,26 @@
+{% if items_color is not defined %}
+    {% set items_color = 'dark-gray' %}
+{% endif %}
+
+<nav class="{% if extra_class is defined %} {{extra_class}} {% endif %}">
+    {% for item in menu_items %}
+        {% if item["data"] is defined %}
+            {% set data_attr = "" %}
+            {% for key,value in item["data"] %}
+                {% if value %}
+                    {% set data_attr = data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+                {% else %}
+                    {% set data_attr = data_attr ~ " data-" ~ key %}
+                {% endif %}
+
+            {% endfor %}
+        {% endif %}
+
+        <a href="{{ item.url }}" class="tool-item lnk-{{ items_color }} {% if item.is_active is defined and item.is_active %}is-active{% endif %} {% if item_extra_class is defined %} {{item_extra_class}} {% endif %}" {% if data_attr is defined %}{{data_attr|raw}}{% endif %}>
+            {% if item.icon is defined %}
+                <i class="{{item.icon}}"></i>
+            {% endif %}
+            {{ item.text }}
+        </a>
+    {% endfor %}
+</nav>

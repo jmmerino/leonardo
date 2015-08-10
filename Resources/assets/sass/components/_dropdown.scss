@@ -1,0 +1,161 @@
+/******************
+/* Dropdown sizes
+/******************/
+select{
+    margin: 0;
+    width: auto;
+    &.w-bottom-margin{
+        margin-bottom: 10px;
+    }
+}
+
+.dropdown{
+    width: 250px;
+    &.w-bottom-margin{
+        margin-bottom: 10px;
+    }
+    .selectize-input{
+        @include box-shadow(none);
+        @include border-radius(6px);
+        overflow: visible;
+        border: 1px solid $lines-gray;
+        .has-error &{
+            @include box-shadow(0px 0px 1px 1px $coral-red);
+        }
+        > .item{
+            font-size: 16px;
+            padding: 3px 25px 4px 0;
+        }
+        input{
+            @include input-placeholder {
+                color: $medium-gray;
+                font-weight: 200;
+            }
+        }
+        &.dropdown-active{
+            @include border-top-left-radius(6px);
+            @include border-top-right-radius(6px);
+        }
+    }
+    &.selectize-control.single{
+        .selectize-input:after{
+            right: 10px;
+        }
+    }
+    &.multi{
+        &.selectize-control{
+            max-height: none;
+        }
+        .selectize-input{
+            max-height: none;
+            > .item{
+                @include border-radius(6px);
+                background-color: $medium-gray;
+                color: white;
+                font-size: 14px;
+                padding: 2px 5px;
+            }
+        }
+    }
+    &.single{
+        .selectize-input > .item{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+    }
+    .selectize-input > .item{
+        font-size: 16px;
+        padding: 3px 25px 4px 0;
+    }
+    .selectize-dropdown {
+        @include box-shadow(0px 5px 5px 0px rgba($lines-gray, 0.5));
+        border: 1px solid $lines-gray;
+        .selectize-dropdown-content{
+            padding: 0 10px;
+        }
+        .option{
+            margin-bottom: 1px;
+            color: $medium-blue;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.is-parent{
+                font-weight: bold;
+                background-color: $lighter-gray;
+                margin-bottom: 1px;
+            }
+        }
+        .active{
+            background-color: $lighter-gray;
+            color: $dark-gray;
+            &.create{
+                color: white;
+            }
+        }
+        // .optgroup-header{
+
+        // }
+    }
+    .optgroup{
+        .option{
+            padding-left: 20px;
+        }
+    }
+
+}
+
+.dropdown-medium{
+    &.selectize-control{
+        max-height: 41px;
+    }
+    .selectize-input{
+        max-height: 41px;
+        padding: 9px 10px 5px !important;
+        input[type="text"]{
+            font-size: 16px;
+        }
+    }
+}
+
+.dropdown-large{
+    &.selectize-control{
+        max-height: 46px;
+    }
+    .selectize-input{
+        max-height: 46px;
+        padding: 14px 10px 10px !important;
+        input[type="text"]{
+            font-size: 16px;
+        }
+        > .item{
+            padding: 0;
+        }
+    }
+}
+
+/***************
+/* Dropdown width
+/***************/
+.dropdown-tiny-width{
+    width: 80px;
+}
+.dropdown-small-width{
+    width: 150px;
+}
+.dropdown-medium-width{
+    width: auto;
+    @include respond-to(small) {
+        width: 250px;
+    }
+
+}
+.dropdown-large-width{
+    width: 300px;
+}
+.dropdown-full-width{
+    width: 100%;
+}
+
+

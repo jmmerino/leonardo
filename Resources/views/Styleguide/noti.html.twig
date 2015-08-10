@@ -1,0 +1,85 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">Selltag.Noti</h2>
+            </div>
+        </div>
+    </div>
+    <div class="grid-20">
+        <div class="col-one-whole">
+            <h3 class="styleguide-component-subtitle">
+                El componente solo se debe añadir una vez. Ya se añade en todas lás páginas (en la plantilla de layout "base.html.twig")
+            </h3>
+            <pre class="prettyprint linenums js-code-block styleguide-component-code" style="display:block">
+    macros.ui_component("noti", {})
+            </pre>
+        </div>
+        <div class="col-one-half">
+            <h3 class="styleguide-component-subtitle">
+                Pulsa el botón para ver la notificación
+            </h3>
+            {{
+                macros.ui_component("button", {
+                    "text": "Probar error",
+                    "extra_class": ["js-btn-error"]
+                } )
+            }}
+        </div>
+        <div class="col-one-half">
+            <h3 class="styleguide-component-subtitle">
+                Codigo Javascript adicional:
+            </h3>
+            <pre class="prettyprint linenums js-code-block styleguide-component-code" style="display:block">
+Selltag.Noti.show("Mensaje para la notificación", "error");
+            </pre>
+
+        </div>
+
+        <div class="col-one-half">
+            <h3 class="styleguide-component-subtitle">
+                Pulsa el botón para ver la notificación
+            </h3>
+            {{
+                macros.ui_component("button", {
+                    "text": "Probar información",
+                    "extra_class": ["js-btn-info"]
+                } )
+            }}
+        </div>
+        <div class="col-one-half">
+            <h3 class="styleguide-component-subtitle">
+                Codigo Javascript adicional:
+            </h3>
+            <pre class="prettyprint linenums js-code-block styleguide-component-code" style="display:block">
+Selltag.Noti.show("Mensaje para la notificación");
+            </pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $(function() {
+        $(".js-btn-error").click(function(){
+            Selltag.Noti.show("Mensaje para la notificación", "error");
+        });
+        $(".js-btn-info").click(function(){
+            Selltag.Noti.show("Mensaje para la notificación");
+        });
+    })
+    </script>
+{% endblock %}

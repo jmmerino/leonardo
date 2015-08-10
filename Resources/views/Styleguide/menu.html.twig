@@ -1,0 +1,95 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ "styleguide.title"|trans }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h2 class="styleguide-component-main-title">Menú y elementos de menú</h2>
+    </div>
+    <div class="row">
+        <div class="grid-0">
+            <div class="col-one-whole">
+                {{
+                    macros.styleguide_component('menu', "Simple menú",
+                    {
+                        "extra_class": "white-container menu_static",
+                        "menu_items": [
+                            {
+                                url: "/",
+                                text: "Item menu 1",
+                                icon: "icon-profile"
+                            },
+                            {
+                                url: "/",
+                                text: "Item menu 1",
+                                icon: "icon-profile"
+                            },
+                            {
+                                url: "/",
+                                text: "Item menu 1",
+                                icon: "icon-profile"
+                            }
+                        ]
+                    })
+                }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-0">
+            <div class="col-one-whole">
+                    {{
+                        macros.styleguide_component('floating-menu', "Menú flotante",
+                        {
+                            "extra_class": "js-floating-menu",
+                            item: {
+                                "text": "Mostar menú",
+                                "url": "/",
+                                "slug": "menu-test",
+                                "submenu": [
+                                    {
+                                        url: "/",
+                                        text: "Item menu 1",
+                                        icon: "icon-profile"
+                                    },
+                                    {
+                                        url: "/",
+                                        text: "Item menu 1",
+                                        icon: "icon-profile"
+                                    },
+                                    {
+                                        url: "/",
+                                        text: "Item menu 1",
+                                        icon: "icon-profile"
+                                    }
+                                ]
+                            }
+                        })
+                    }}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(function(){
+            _.each($(".js-floating-menu"), function(menu) {
+                var $menu = $(menu);
+                $menu.toolbar({
+                    content: "." + $menu.attr("data-content"),
+                    position: "bottom",
+                    hideOnClick: true,
+                    elementToAppend: ".js-main-nav",
+                    handleClick: ($menu.attr("data-handleclick") || false),
+                    className: $menu.attr("data-class")
+                });
+            });
+        });
+
+    </script>
+
+{% endblock %}

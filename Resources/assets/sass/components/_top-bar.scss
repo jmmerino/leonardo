@@ -1,0 +1,137 @@
+.top-bar{
+    background-color: #FFF;
+    padding: 10px 20px;
+    border-top: 5px solid $coral-red;
+    margin-bottom: 40px;
+    height: 65px;
+    overflow: visible;
+}
+.top-bar__link-logo{
+    margin-top: 4px;
+    margin-right: 15px;
+    display: inline-block;
+    float: left;
+    min-width: 13%;
+    @include respond-to(large) {
+        margin-right: 30px;
+    }
+}
+.top-bar__img-logo{
+    max-width: 100px;
+    margin-top: 4px;
+    @include respond-to(x-small) {
+        max-width: 130px;
+    }
+    @include respond-to(large) {
+        max-width: 148px;
+        margin: 0;
+    }
+}
+
+.top-bar__search__wrapper{
+    display: none;
+    margin-top: 2px;
+    @include respond-to(small) {
+        display: inline-block;
+        width: 45%;
+    }
+    @include respond-to(medium) {
+        width: 43%;
+    }
+    @include respond-to(large) {
+        width: 49%;
+    }
+}
+.top-bar__search-box{
+    width: 50%;
+    float: left;
+    @include respond-to(large) {
+        width: 70%;
+    }
+}
+.top-bar__publish-button{
+    margin: 2px 10px;
+}
+
+.top-bar__search-button{
+    float: left;
+    margin-left: 5px;
+}
+
+.top-bar__header-menu__wrapper{
+    height: 60px;
+    position: relative;
+    top: -10px;
+}
+
+.top-bar__link{
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+    padding: 0px 10px;
+    font-weight: 300;
+    &.top-bar__link-connect{
+        margin: 14px 10px;
+    }
+    [class*="icon-"]{
+        color: $medium-gray;
+        margin-right: 2px;
+    }
+}
+
+.top-bar__block{
+    cursor: pointer;
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+
+    @include respond-to(medium) {
+        position: relative;
+    }
+}
+.top-bar__help-block__menu__header{
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 10px 15px;
+    color: $dark-gray;
+}
+
+.top-bar__block__menu__separator{
+    background-color: #dbdce1;
+    height: 1px;
+    border: none;
+    margin: 5px 0;
+}
+
+/**
+ * Responsive menu
+ */
+.tooltip-user-menu, .tooltip-help-menu{
+    visibility: hidden;
+    @include respond-to(medium) {
+        visibility: visible;
+    }
+}
+
+.top-bar__menu--responsive{
+    border-top: 5px solid $coral-red;
+    position: fixed;
+    background-color: white;
+    height: 100%;
+    top: 0;
+    right: -290px;
+    width: 290px;
+    padding: 19px 10px;
+    display: block;
+    .top-bar__block__menu__separator{
+        margin: 13px 0;
+    }
+    @include respond-to(medium) {
+        display: none;
+    }
+}
+.top-bar__menu--responsive__username{
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0 15px;
+}

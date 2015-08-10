@@ -1,0 +1,24 @@
+{% if name is not defined %}
+    {% set name = "radiobutton-default-name" %}
+{% endif %}
+
+{% if data is defined %}
+    {% set data_attr = "" %}
+    {% for key,value in data %}
+        {% if value is not empty %}
+            {% set data_attr = data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+        {% else %}
+            {% set data_attr = data_attr ~ " data-" ~ key %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<div class="radiobutton field-wrapper {% if extra_class is defined and 'full-width' in extra_class %}field-wrapper-full-width{% endif %}">
+    <input {% if is_disabled is defined %}disabled="disabled"{% endif %} {% if is_checked is defined and is_checked %}checked{% endif %} id="{{id}}" name="{{name}}" class="{{ extra_class is defined ? extra_class : "" }}" {% if data_attr is defined %}{{data_attr|raw}}{% endif %} {% if value is defined %}value="{{value}}"{% endif %} type="radio">
+    <span class="radiobutton_circle"></span>
+    <label for="{{id}}">
+        {{ text }}
+    </label>
+</div>
+

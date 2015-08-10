@@ -1,0 +1,55 @@
+.selltag-alert{
+    display: none;
+}
+.noti{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    z-index: 101;
+    visibility: hidden;
+    opacity: 0;
+
+    &.animated{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    @include respond-to(medium) {
+        @include box-shadow(0px 5px 5px 0px rgba($lines-gray, 0.5));
+        @include border-radius(5px);
+        @include transition;
+        width: 350px;
+        right: 20px;
+        left: auto;
+        bottom: 20px;
+    }
+}
+.noti_header{
+    display: block;
+    width: 100%;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 15px 17px 13px;
+    .noti_error &{
+        background-color: $noti-error;
+    }
+    .noti_success &{
+        background-color: $noti-success;
+    }
+
+    @include respond-to(medium) {
+        @include border-top-left-radius(5px);
+        @include border-top-right-radius(5px);
+    }
+}
+.noti_text{
+    font-size: 16px;
+    display: block;
+    padding: 15px 14px;
+    min-height: 50px;
+    line-height: 22px;
+}

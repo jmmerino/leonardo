@@ -1,0 +1,137 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+
+body{
+    @include transition-property(transform);
+    @include transition-duration(0.5s);
+    @include transform(none);
+    background-color: $lighter-gray;
+    font-family: proxima-nova;
+    font-size: 14px;
+    overflow-x: hidden;
+    font-weight: 200;
+    min-height: 100%;
+    &.menu-is-visible{
+        @include transform(translateX(-290px));
+    }
+    @include respond-to(medium) {
+        @include transform(none);
+        &.menu-is-visible{
+            @include transform(translateX(0px));
+        }
+    }
+}
+
+hr{
+    border: solid $lines-gray;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25rem 0 1.1875rem;
+    height: 0;
+}
+
+strong{
+    font-weight: 400;
+}
+
+.body-gray{
+    background-color: $lighter-gray;
+    .icon-loading{
+        display: none;
+        position: absolute;
+        font-size: 40px;
+        margin-top: 100px;
+        margin-left: -20px;
+        left:50%;
+    }
+    &.is-loading{
+        .gray-container{
+            opacity: 0.2;
+        }
+        .icon-loading{
+            display: block;
+        }
+    }
+    @include respond-to(medium) {
+        padding-top: 50px;
+    }
+}
+
+
+
+/**
+ * Containers
+ */
+.container{
+    max-width: 1010px;
+    margin: 0 auto;
+    padding: 0;
+    .w-padding{
+        padding: 0 20px;
+    }
+    .admin &{
+        max-width: 1500px;
+    }
+    @include respond-to(large) {
+        padding: 0 20px;
+    }
+}
+.main-container{
+    padding: 0 20px;
+    @include respond-to(x-large) {
+        padding: 0;
+    }
+}
+.admin-container{
+    max-width: 1500px;
+    margin: auto;
+    padding: 0 20px;
+}
+.modal-container{
+    @include border-radius(3px);
+    background-color: white;
+    max-width: 650px;
+    padding: 30px;
+    margin: 0 auto 30px auto;
+
+    .modal-panel{
+        position: absolute;
+        top: 0;
+        display: none;
+        &.is-active {
+            position: relative;
+            display: block;
+        }
+    }
+}
+.panel-container{
+    position: relative;
+}
+.white-container{
+    @include box-shadow(0px 1px 0px 0px $light-gray);
+    background: white;
+    border: 1px solid $light-gray;
+    display: inline-block;
+    width: 100%;
+    &.w-padding{
+        padding: 10px;
+    }
+}
+.static-container{
+    width: 100%;
+    padding: 60px 75px;
+}
+.w-responsive-margin{
+    padding: 0 20px;
+    @include respond-to(large) {
+        padding: 0;
+    }
+}
+
+

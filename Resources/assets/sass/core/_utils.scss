@@ -1,0 +1,9 @@
+.split-right{
+    float: right;
+}
+.split-left{
+    float: left;
+}
+.clearfix{
+    @include clearfix;
+}

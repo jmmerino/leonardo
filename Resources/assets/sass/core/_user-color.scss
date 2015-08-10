@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+$colors: (
+  "yellow": $user-yellow,
+  "orange": $user-orange,
+  "red": $user-red,
+  "pink": $user-pink,
+  "purple": $user-purple,
+  "blue": $user-blue,
+  "green": $user-green
+);
+
+@each $color in $colors {
+    .user-#{nth($color, 1)}{
+        .user-color{
+            color: nth($color, 2);
+        }
+        .user-bg-color{
+            background-color: nth($color, 2);
+        }
+        .user-border-color{
+            border-color: nth($color, 2);
+        }
+        .user-border-left-color{
+            border-left-color: nth($color, 2);
+        }
+        .user-border-right-color{
+            border-right-color: nth($color, 2);
+        }
+    }
+}

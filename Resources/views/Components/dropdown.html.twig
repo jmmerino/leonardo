@@ -1,0 +1,75 @@
+{#
+    OPTIONS
+        size: size of the dropdown
+        empty_option: if you want an empty option in the dropdown, text for the empty option
+        items: [value,text] array with the values and text for the dropdown
+        extra_class: extra css classes
+        value_selected: This is an array with the values that should be selected.
+#}
+
+
+{% set classes = "dropdown" %}
+{% if size is defined %}
+    {% set classes = classes ~ " dropdown-" ~ size %}
+{% else %}
+    {% set classes = classes ~ " dropdown-medium" %}
+{% endif %}
+
+{% if extra_class is defined %}
+    {% set classes = classes ~ " " ~ extra_class %}
+{% endif %}
+
+{% if data is defined %}
+    {% set data_attr = "" %}
+    {% for key,value in data %}
+        {% if value %}
+            {% set data_attr = data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+        {% else %}
+            {% set data_attr = data_attr ~ " data-" ~ key %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<div class="field-wrapper {% if 'full-width' in classes %}field-wrapper-full-width{% endif %} {% if is_floated is defined %}split-left{% endif %} js-{{id}}-wrapper">
+    <select autocomplete="off" {% if multiple is defined %}multiple{% endif %} {% if is_hidden is defined %}style="display:none"{% endif %} {% if data_attr is defined %}{{data_attr|raw}}{% endif %} {% if name is defined %}name="{{name}}"{% endif %} {% if id is defined %}id="{{id}}"{% endif %} class="{{classes}}">
+        {% if placeholder is defined %}
+            <option value>{{placeholder}}</option>
+        {% endif %}
+        {% if empty_option is defined %}
+            <option value="0">{{empty_option}}</option>
+        {% endif %}
+        {% for item in items %}
+
+            {% if item.data is defined %}
+                {% set item_data_attr = "" %}
+                {% for key,value in item.data %}
+                    {% if value %}
+                        {% set item_data_attr = item_data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+                    {% else %}
+                        {% set item_data_attr = item_data_attr ~ " data-" ~ key %}
+                    {% endif %}
+
+                {% endfor %}
+            {% endif %}
+
+
+            {% if item.parent is defined and item.parent is null %}
+                {# <optgroup {% if item_data_attr is defined %}{{item_data_attr|raw}}{% endif %} label="{{item.text}}"> #}
+                <option data-parent="true" {% if item_data_attr is defined %}{{item_data_attr|raw}}{% endif %} data-text="{{item.text}}" value="{{item.value}}" {% if value_selected is defined and item.value == value_selected %}selected{% endif %}>{{item.text}}</option>
+
+                {% set parent_item = item %}
+
+            {% else %}
+                {% if item.value is not empty %}
+                    {% if multiple is defined %}
+                        <option {% if parent_item is defined %}data-parent-slug="{{parent_item.data.slug}}"{% endif %} {% if item_data_attr is defined %}{{item_data_attr|raw}}{% endif %} data-text="{{item.text}}" value="{{item.value}}" {% if value_selected is defined and item.value in value_selected %}selected{% endif %}>{{item.text}}</option>
+                    {% else %}
+                        <option {% if parent_item is defined %}data-parent-slug="{{parent_item.data.slug}}"{% endif %} {% if item_data_attr is defined %}{{item_data_attr|raw}}{% endif %} data-text="{{item.text}}" value="{{item.value}}" {% if value_selected is defined and item.value == value_selected %}selected{% endif %}>{{item.text}}</option>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </select>
+    {% include 'SelltagMainBundle:Common:errorTooltip.html.twig' %}
+</div>

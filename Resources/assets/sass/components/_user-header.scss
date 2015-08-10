@@ -1,0 +1,103 @@
+.user_header{
+    @extend .user-bg-color;
+    background-image: url(/../bundles/selltagmain/images/bg-user-header.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+.user_header_link-wrapper{
+    margin-top: 25px;
+    padding: 0;
+    text-align: center;
+
+    @include respond-to(medium) {
+        display: table-cell;
+        vertical-align: middle;
+        height: 170px;
+        text-align: left;
+    }
+    @include respond-to(large) {
+        height: 118px;
+        text-align: left;
+    }
+
+}
+.user_header_link{
+    font-size: 16px;
+    display: block;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 500;
+    &:hover, &:active{
+        color: white;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+    .user_header_link-sub{
+        font-weight: 300;
+    }
+    i{
+        color: rgba(0,0,0,0.3);
+    }
+}
+
+.user_tabs_wrapper{
+    background-color: white;
+}
+.user_tabs_link{
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px 5px;
+    text-align: center;
+    display: block;
+    border-bottom: 1px solid $lines-gray;
+    i{
+        color: $medium-gray;
+        margin-right: 10px;
+    }
+    &.on-left{
+        border-right: 1px solid $lines-gray;
+    }
+    &.is-active{
+        position: relative;
+        color: $medium-black;
+        i{
+            @extend .user-color;
+        }
+        &:after{
+            @extend .user-bg-color;
+            content: '';
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            position: absolute;
+        }
+    }
+}
+.user_tabs_link-content{
+    display: initial;
+    @include respond-to(medium) {
+        display: table;
+        margin: auto;
+    }
+}
+.user_tabs_link-number{
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+    font-weight: 700;
+    @include respond-to(medium) {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+.user_tabs_link-text{
+    display: block;
+    vertical-align: initial;
+    @include respond-to(medium) {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}

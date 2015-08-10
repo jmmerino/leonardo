@@ -1,0 +1,49 @@
+/**
+ * Links
+ */
+a{
+    text-decoration: none;
+    &.lnk-uppercase{
+        text-transform: uppercase;
+    }
+}
+
+.lnk-medium-black{
+    color: $medium-black;
+    &:hover{
+        color: $medium-blue;
+    }
+}
+
+.lnk-dark-gray{
+    color: $dark-gray;
+    &:hover{
+        color: $medium-blue;
+    }
+}
+a, .lnk-blue{
+    color: $medium-blue;
+    &:hover{
+        color: $dark-gray;
+    }
+    &.is-active{
+        color: $medium-black;
+        font-weight: 500;
+    }
+}
+.lnk-social{
+    color: $medium-gray;
+    font-size: 19px;
+    &:hover{
+        .icon-twitter{
+            color: $twitter;
+        }
+        .icon-facebook{
+            color: $facebook;
+        }
+        &:active{
+            color: $medium-black;
+        }
+    }
+
+}

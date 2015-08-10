@@ -1,0 +1,277 @@
+// -----------------------------------------------------------------------------
+//
+//  Base Grid setup
+//
+// -----------------------------------------------------------------------------
+
+.row{
+    display: inline-block;
+    width: 100%;
+
+    .admin &{
+        max-width: none;
+    }
+    &.b-margin-10{
+        margin-bottom: 10px;
+    }
+    &.b-margin-20{
+        margin-bottom: 20px;
+    }
+    &.b-margin-30{
+        margin-bottom: 30px;
+    }
+    &.b-margin-40{
+        margin-bottom: 40px;
+    }
+    &.b-margin-45{
+        margin-bottom: 45px;
+    }
+    &.b-margin-50{
+        margin-bottom: 50px;
+    }
+    &.b-margin-55{
+        margin-bottom: 55px;
+    }
+    &.b-margin-60{
+        margin-bottom: 60px;
+    }
+    &.b-margin-80{
+        margin-bottom: 80px;
+    }
+}
+
+[class*="grid-"] {
+    box-sizing: border-box;
+    > [class*="col-"] {
+        box-sizing: border-box;
+    }
+}
+
+.col-right {
+    float: right !important;
+}
+
+// -----------------------------------------------------------------------------
+// The modifier on the grid determines the width of the gutters
+//
+// e.g. grid--10, grid--20
+// -----------------------------------------------------------------------------
+
+@mixin grid($gutter-width) {
+    .grid-#{$gutter-width} {
+        @content;
+    }
+}
+
+@each $gutter-width in 0, 10, 15, 20, 30, 50 {
+    @include grid($gutter-width) {
+        margin-left: -#{$gutter-width}px;
+        & > [class*="col-"] {
+            float: left;
+            padding-left: #{$gutter-width}px;
+            &.w-bottom-margin{
+                margin-bottom: #{$gutter-width}px;
+            }
+            &.centered, &.text-centered{
+                text-align: center;
+            }
+            &.text-right{
+                text-align: right;
+            }
+            &.col-centered{
+                float: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+//
+// Default grid
+//
+// -----------------------------------------------------------------------------
+
+.col-flex{
+    width: auto;
+}
+
+.col-one-whole {
+  width: 100%;
+}
+
+.col-one-half {
+  width: percentage(1 / 2);
+}
+
+.col-one-third {
+  width: percentage(1 / 3);
+}
+
+.col-two-thirds {
+  width: percentage(2 / 3);
+}
+
+.col-one-quarter {
+  width: percentage(1 / 4);
+}
+
+.col-three-quarters {
+  width: percentage(3 / 4);
+}
+
+.col-one-fifth {
+  width: percentage(1 / 5);
+}
+
+.col-two-fifths {
+  width: percentage(2 / 5);
+}
+
+.col-three-fifths {
+  width: percentage(3 / 5);
+}
+
+.col-four-fifths {
+  width: percentage(4 / 5);
+}
+
+.col-clear {
+  clear: left;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// Offset cols
+//
+// -----------------------------------------------------------------------------
+
+.offset-none{
+    margin-left: 0;
+}
+.offset-one-half{
+    margin-left: percentage(1 / 2);
+}
+
+.offset-one-third{
+    margin-left: percentage(1 / 3);
+}
+
+.offset-two-thirds{
+    margin-left: percentage(2 / 3);
+}
+
+.offset-one-quarter{
+    margin-left: percentage(1 / 4);
+}
+
+.offset-three-quarters{
+    margin-left: percentage(3 / 4);
+}
+
+.offset-one-fifth{
+    margin-left: percentage(1 / 5);
+}
+
+.offset-two-fifths{
+    margin-left: percentage(2 / 5);
+}
+
+.offset-three-fifths{
+    margin-left: percentage(3 / 5);
+}
+
+.offset-four-fifths{
+    margin-left: percentage(4 / 5);
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// Responsive grid
+//
+// -----------------------------------------------------------------------------
+
+@each $screen-size in x-small, small, medium, large, x-large, xx-large {
+    @include respond-to($screen-size, false) {
+        .#{$screen-size}-col-flex{
+            width: auto;
+        }
+        .#{$screen-size}-col-one-whole {
+            width: 100%;
+        }
+        .#{$screen-size}-col-one-half {
+            width: percentage(1 / 2);
+        }
+        .#{$screen-size}-col-one-third {
+            width: percentage(1 / 3);
+        }
+        .#{$screen-size}-col-two-thirds {
+            width: percentage(2 / 3);
+        }
+        .#{$screen-size}-col-one-quarter {
+            width: percentage(1 / 4);
+        }
+        .#{$screen-size}-col-three-quarters {
+            width: percentage(3 / 4);
+        }
+        .#{$screen-size}-col-one-fifth {
+            width: percentage(1 / 5);
+        }
+        .#{$screen-size}-col-two-fifths {
+            width: percentage(2 / 5);
+        }
+        .#{$screen-size}-col-three-fifths {
+            width: percentage(3 / 5);
+        }
+        .#{$screen-size}-col-four-fifths {
+            width: percentage(4 / 5);
+        }
+        .#{$screen-size}-clear {
+            clear: left;
+        }
+
+        .#{$screen-size}-offset-none{
+            margin-left: 0;
+        }
+
+        .#{$screen-size}-offset-one-half{
+            margin-left: percentage(1 / 2);
+        }
+
+        .#{$screen-size}-offset-one-third{
+            margin-left: percentage(1 / 3);
+        }
+
+        .#{$screen-size}-offset-two-thirds{
+            margin-left: percentage(2 / 3);
+        }
+
+        .#{$screen-size}-offset-one-quarter{
+            margin-left: percentage(1 / 4);
+        }
+
+        .#{$screen-size}-offset-three-quarters{
+            margin-left: percentage(3 / 4);
+        }
+
+        .#{$screen-size}-offset-one-fifth{
+            margin-left: percentage(1 / 5);
+        }
+
+        .#{$screen-size}-offset-two-fifths{
+            margin-left: percentage(2 / 5);
+        }
+
+        .#{$screen-size}-offset-three-fifths{
+            margin-left: percentage(3 / 5);
+        }
+
+        .#{$screen-size}-offset-four-fifths{
+            margin-left: percentage(4 / 5);
+        }
+    }
+
+}

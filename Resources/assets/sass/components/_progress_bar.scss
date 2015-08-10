@@ -1,0 +1,111 @@
+.progress-bar_item{
+    position: relative;
+    &:nth-child(1){
+        .progress-bar_bars{
+            &:before{
+                display: none;
+            }
+        }
+    }
+    &:nth-child(5){
+        .progress-bar_bars{
+            &:after{
+                display: none;
+            }
+        }
+    }
+}
+
+.progres-bar_circle {
+    width: 35px;
+    border: 2px solid $light-gray;
+    border-radius: 50px;
+    height: 35px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    padding-top: 4px;
+    .icon-tick{
+        color: white;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+    }
+
+    @include respond-to(medium) {
+        float: none;
+        margin: auto;
+        .icon-tick{
+            color: white;
+            position: relative;
+            top: -1px;
+            left: 0px;
+        }
+    }
+
+
+
+    .is-completed &{
+        background-color: $medium-green;
+        border: 3px solid $medium-green;
+    }
+}
+.progress-bar_bars{
+    &:before, &:after{
+        content: '';
+        position: absolute;
+        background-color: $light-gray;
+        z-index: 1;
+        width: 4px;
+        left: 16px;
+        height: 50%;
+        @include respond-to(medium) {
+            left: initial;
+            height: 4px;
+            top: 67px;
+            margin-top: -2px;
+            width: 50%;
+        }
+
+
+        .is-completed &{
+            background-color: $medium-green;
+            @include respond-to(medium) {
+                height: 6px;
+                margin-top: -3px;
+            }
+        }
+    }
+    &:before{
+        top: -7px;
+        @include respond-to(medium) {
+            top: 67px;
+            left: 0;
+        }
+    }
+    &:after{
+        bottom: 7px;
+        @include respond-to(medium) {
+            bottom: initial;
+            right: 0;
+        }
+    }
+}
+
+.progress-bar_status-text{
+    font-size: 15px;
+    display: block;
+    padding: 7px 45px;
+    height: 50px;
+    float: left;
+
+    .is-completed & {
+        font-weight: 500;
+    }
+
+    @include respond-to(medium) {
+        float: none;
+        text-align: center;
+        padding: 0 10px;
+    }
+}

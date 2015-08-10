@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+@mixin respond-to($screen-width, $fallback: true) {
+
+    // We have to set up a blank variable here or sass errors out
+    $breakpoint: '';
+
+    @if $screen-width == x-small {
+        $breakpoint: 370;
+    } @else if $screen-width == small {
+        $breakpoint: 600;
+    } @else if $screen-width == medium {
+        $breakpoint: 768;
+    } @else if $screen-width == large {
+        $breakpoint: 980;
+    } @else if $screen-width == x-large {
+        $breakpoint: 1025;
+    } @else if $screen-width == xx-large {
+        $breakpoint: 1200;
+    } @else {
+        $breakpoint: $screen-width;
+    }
+
+    @media only screen and (min-width : #{$breakpoint}px) {
+      @content;
+    }
+}
+
+@mixin css-arrow($box-edge         : bottom,
+                 $edge-side        : center,
+                 $arrow-size       : 10px,
+                 $edge-side-offset : 0,
+                 $fill-color       : black,
+                 $border-color     : none,
+                 $border-style     : border) {
+
+// initiate internal variables
+  $box-edge-inverse: bottom;
+  $edge-side-pos: $edge-side;
+  $edge-side-pos-value: 0;
+
+// establish inverse variables
+  @if      $box-edge == top    { $box-edge-inverse: bottom; }
+  @else if $box-edge == right  { $box-edge-inverse: left;   }
+  @else if $box-edge == bottom { $box-edge-inverse: top;    }
+  @else if $box-edge == left   { $box-edge-inverse: right;  }
+
+// calculate remaining internal variables
+  @if ($box-edge == 'top' or
+       $box-edge == 'bottom') {
+    @if $edge-side == center {
+      $edge-side-pos: left;
+      $edge-side-pos-value: 50%;
+      $edge-side-offset: (-$arrow-size);
+    }
+  }
+  @if ($box-edge == 'left' or
+       $box-edge == 'right') {
+    @if $edge-side == center {
+      $edge-side-pos: top;
+      $edge-side-pos-value: 50%;
+      $edge-side-offset: (-$arrow-size);
+    }
+  }
+
+  &:after, &:before {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: solid rgba(#fff, 0);
+  }
+
+  &:after  {
+    border-color: rgba(#fff, 0);
+    border-width: $arrow-size - 1;
+    #{$box-edge}: (-$arrow-size) - $arrow-size + 2;
+    border-#{$box-edge-inverse}-color: $fill-color;
+    #{$edge-side-pos}: $edge-side-pos-value;
+    margin-#{$edge-side-pos}: $edge-side-offset + 1;
+  }
+
+  @if $border-style == flag {
+    @include border-radius(2px);
+    &:before {
+      border-color: rgba(#fff, 0);
+      border-width: $arrow-size - 1;
+      #{$box-edge}: (-$arrow-size) - $arrow-size + 2;
+      border-#{$box-edge-inverse}-color: $border-color;
+      #{$edge-side-pos}: $edge-side-pos-value;
+      margin-#{$edge-side-pos}: $edge-side-offset + 2;
+    }
+  } @else {
+    &:before {
+      border-color: rgba(#fff, 0);
+      border-width: $arrow-size;
+      #{$box-edge}: (-$arrow-size) - $arrow-size;
+      border-#{$box-edge-inverse}-color: $border-color;
+      #{$edge-side-pos}: $edge-side-pos-value;
+      margin-#{$edge-side-pos}: $edge-side-offset;
+    }
+  }
+}
+
+@mixin vertical-align($height: 50) {
+    display: table-cell;
+    vertical-align: middle;
+    height: $height;
+}
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .aspect-ratio__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

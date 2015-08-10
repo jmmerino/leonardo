@@ -1,0 +1,59 @@
+.smart-banner{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: $light-gray;
+    display: none;
+    .image-content_image{
+        margin-right: 5px;
+    }
+}
+.smart-banner__left{
+    width: 75%;
+    float: left;
+}
+.smart-banner__right{
+    width: 25%;
+    float: left;
+}
+.smart-banner__right__content{
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+.smart-banner__close{
+    @include vertical-align(80px);
+    padding: 0 5px;
+}
+.smart-banner__icon{
+    width: 70px;
+}
+.smart-banner__content{
+    @include vertical-align(80px);
+}
+.smart-banner__title{
+    color: $medium-black;
+    font-size: 12px;
+    margin-bottom: 3px;
+    @include respond-to(x-small) {
+        font-size: 14px;
+    }
+}
+.smart-banner__text{
+    font-size: 9px;
+    @include respond-to(x-small) {
+        font-size: 11px;
+    }
+}
+.smart-banner__stars{
+    margin-bottom: 5px;
+    .icon-favourites-solid{
+        color: $user-yellow;
+    }
+}
+.smart-banner__download-link{
+    font-size: 11px;
+    @include respond-to(x-small) {
+        font-size: 14px;
+    }
+}

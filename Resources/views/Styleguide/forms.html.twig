@@ -1,0 +1,288 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ "styleguide.forms_title"|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">Forms</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Large Input box</h3>
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "Normal", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "large",
+                    "value": "Esto es un texto"
+                }) }}
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "With icon", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "large",
+                    "value": "Esto es un texto",
+                    "icon": "icon-search"
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Medium Input box</h3>
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "Normal", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "medium",
+                    "value": "Esto es un texto"
+                }) }}
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "With icon", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "medium",
+                    "value": "Esto es un texto",
+                    "icon": "icon-search"
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Header Input</h3>
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "Normal", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "header",
+                    "value": "Esto es un texto"
+                }) }}
+            </div>
+            <div class="large-col-one-half medium-col-one-half col-one-whole">
+                {{ macros.styleguide_component("text-input", "With icon", {
+                    "id": "txt-id",
+                    "name": "txt-name",
+                    "extra_class": "txt-extra-class",
+                    "size": "header",
+                    "value": "Esto es un texto",
+                    "icon": "icon-search"
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">label</h3>
+            </div>
+            <div class="col-one-half">
+                {{ macros.styleguide_component("label", "Medium", {
+                    "text": "Nombre y apellidos",
+                    "position": "top",
+                    "extra_class": "",
+                    "text_input_id": "id"
+                }) }}
+            </div>
+
+            <div class="col-one-half">
+                {{ macros.styleguide_component("label", "Medium", {
+                    "text": "Nombre y apellidos",
+                    "position": "left",
+                    "extra_class": "",
+                    "text_input_id": "id"
+                }) }}
+            </div>
+        </div>
+        <div class="column medium-4">
+            {{ macros.styleguide_component("text-input", "With error", {
+                "id": "txt-error",
+                "name": "txt-name",
+                "extra_class": "txt-extra-class",
+                "value": "Caja con error"
+            }) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Text Area</h3>
+            </div>
+            <div class="col-one-whole large-col-one-third">
+                {{
+                    macros.styleguide_component("text-area", "Text area small", {
+                        "id": "txt-text-area",
+                        "name": "text-area",
+                        "extra_class": "txt-full-width",
+                        "size": "small"
+                    } )
+                }}
+            </div>
+            <div class="col-one-whole large-col-one-third">
+                {{
+                    macros.styleguide_component("text-area", "Text area medium", {
+                        "id": "txt-text-area",
+                        "name": "text-area",
+                        "extra_class": "txt-full-width",
+                        "size": "medium"
+                    } )
+                }}
+            </div>
+            <div class="col-one-whole large-col-one-third">
+                {{
+                    macros.styleguide_component("text-area", "Text area large", {
+                        "id": "txt-text-area",
+                        "name": "text-area",
+                        "extra_class": "txt-full-width",
+                        "size": "large"
+                    } )
+                }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Dropdown</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half">
+                {{ macros.styleguide_component("dropdown", "Meidum (default)", {
+                    "id": "dropdown-id",
+                    "name": "dropdown-name",
+                    "extra_class": "dropdown-extra-class",
+                    "empty_option": "Select one",
+                    "items": [
+                        {text: "uno", value: 1},
+                        {text: "dos", value: 2},
+                        {text: "tres", value: 3}
+                    ]
+                }) }}
+            </div>
+            <div class="col-one-whole medium-col-one-half">
+                {{ macros.styleguide_component("dropdown", "Large", {
+                    "id": "dropdown-id",
+                    "name": "dropdown-name",
+                    "extra_class": "dropdown-extra-class",
+                    "size": "large",
+                    "empty_option": "Select one",
+                    "items": [
+                        {text: "uno", value: 1},
+                        {text: "dos", value: 2},
+                        {text: "tres", value: 3}
+                    ]
+                }) }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Checkboxes</h3>
+            </div>
+            <div class="medium-col-one-quarter col-one-half">
+                {{ macros.styleguide_component("checkbox", "Meidum (default)", {
+                    "id": "chk-id-1",
+                    "name": "chk-name",
+                    "text": "Texto para checkbox"
+                }) }}
+            </div>
+            <div class="medium-col-one-quarter col-one-half">
+                {{ macros.styleguide_component("checkbox", "Meidum (default)", {
+                    "id": "chk-id-2",
+                    "name": "chk-name",
+                    "text": "Texto para checkbox"
+                }) }}
+            </div>
+            <div class="medium-col-one-quarter col-one-half">
+                {{
+                    macros.styleguide_component('checkbox', "With icon", {
+                        "id": "chk-twitter",
+                        "name": "chk-twitter",
+                        "icon": "icon-twitter icon-twitter-color icon-2x"
+                    })
+                }}
+            </div>
+            <div class="medium-col-one-quarter col-one-half">
+                {{
+                    macros.styleguide_component('checkbox', "With icon + label", {
+                        "id": "chk-twitter",
+                        "name": "chk-twitter",
+                        "icon": "icon-twitter icon-twitter-color icon-2x",
+                        "text": "Twitter"
+                    })
+                }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Radiobuttons</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half">
+                {{ macros.styleguide_component("radiobutton", "Meidum (default)", {
+                    "id": "rb-id-1",
+                    "name": "rb-name",
+                    "text": "Texto para radiobutton"
+                }) }}
+            </div>
+            <div class="col-one-whole medium-col-one-half">
+                {{ macros.styleguide_component("radiobutton", "Meidum (default)", {
+                    "id": "rb-id-2",
+                    "name": "rb-name",
+                    "text": "Texto para radiobutton"
+                }) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $( document ).ready(function() {
+      $("select").selectize();
+
+      window.txtField = new Selltag.Component.Field({
+        el: ".js-txt-error-wrapper"
+      });
+
+      window.txtField.showError();
+
+    });
+
+
+    </script>
+{% endblock %}

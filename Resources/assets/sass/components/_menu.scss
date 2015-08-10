@@ -1,0 +1,12 @@
+.menu_static{
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    .tool-item{
+        font-size: 15px;
+        font-weight: 300;
+        &.is-active{
+            font-weight: 400;
+        }
+    }
+}

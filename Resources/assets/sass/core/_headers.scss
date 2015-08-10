@@ -1,0 +1,82 @@
+
+/**
+ * General
+ */
+.copy-h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+.copy-h2{
+    font-size: 28px;
+    font-weight: 400;
+}
+.copy-h3{
+    font-size: 24px;
+    font-weight: 400;
+}
+.copy-h4{
+    font-size: 20px;
+    font-weight: 500;
+    color: $medium-black;
+}
+.copy-subtitle{
+    font-size: 18px;
+}
+.copy-paragraph{
+    font-size: 16px;
+    line-height: 20px;
+}
+.copy-paragraph--big{
+    font-size: 22px;
+    line-height: 30px;
+}
+
+/**
+ * Homepage
+ */
+.copy__main-title{
+    font-size: 34px;
+    font-weight: 500;
+}
+
+/**
+ * Modals
+ */
+.copy_modal_title{
+    font-size: 34px;
+    font-weight: 500;
+}
+.copy_modal_subtitle{
+    font-size: 18px;
+    line-height: 26px;
+}
+.copy_modal_subtext{
+    font-size: 13px;
+    font-weight: 200;
+}
+
+
+/**
+ * Tooltips
+ */
+.copy_tooltip_title{
+    font-size: 18px;
+    font-weight: 400;
+}
+.copy-tooltip{
+    font-size: 16px;
+    color: $medium-black;
+    line-height: 22px;
+}
+
+
+/**
+ * Admin
+ */
+.copy__admin__title{
+    font-size: 25px;
+    font-weight: 100;
+    padding: 15px 0 5px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}

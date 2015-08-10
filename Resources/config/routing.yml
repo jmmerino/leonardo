@@ -1,0 +1,55 @@
+# Styleguide pages
+styleguide:
+    pattern: /styleguide
+    defaults: { _controller: LeonardoBundle:Styleguide:colours }
+
+styleguide_colours:
+    pattern: /styleguide/colours
+    defaults: { _controller: LeonardoBundle:Styleguide:colours }
+styleguide_grid:
+    pattern: /styleguide/grid
+    defaults: { _controller: LeonardoBundle:Styleguide:grid }
+
+styleguide_buttons:
+    pattern: /styleguide/buttons
+    defaults: { _controller: LeonardoBundle:Styleguide:buttons }
+
+styleguide_tooltips:
+    pattern: /styleguide/tooltips
+    defaults: { _controller: LeonardoBundle:Styleguide:tooltips }
+
+styleguide_forms:
+    pattern: /styleguide/forms
+    defaults: { _controller: LeonardoBundle:Styleguide:forms }
+
+styleguide_top_bar:
+    pattern: /styleguide/top-bar
+    defaults: { _controller: LeonardoBundle:Styleguide:topBar }
+
+styleguide_footer:
+    pattern: /styleguide/footer
+    defaults: { _controller: LeonardoBundle:Styleguide:footer }
+
+styleguide_search_box:
+    pattern: /styleguide/search-box
+    defaults: { _controller: LeonardoBundle:Styleguide:searchBox }
+
+styleguide_users:
+    pattern: /styleguide/users
+    defaults: { _controller: LeonardoBundle:Styleguide:users }
+
+styleguide_icons:
+    pattern: /styleguide/icons
+    defaults: { _controller: LeonardoBundle:Styleguide:icons }
+
+styleguide_menu:
+    pattern: /styleguide/menu
+    defaults: { _controller: LeonardoBundle:Styleguide:menu }
+
+styleguide_noti:
+    pattern: /styleguide/noti
+    defaults: { _controller: LeonardoBundle:Styleguide:noti }
+
+styleguide_product:
+    pattern: /styleguide/product-cards
+    defaults: { _controller: LeonardoBundle:Styleguide:product }

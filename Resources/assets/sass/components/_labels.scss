@@ -1,0 +1,35 @@
+.lbl{
+    font-size: 16px;
+    color: $dark-gray;
+    font-weight: 300;
+    @include respond-to(medium) {
+        font-size: 18px;
+    }
+    &.lbl-is-data{
+        color: $medium-black;
+    }
+}
+
+/***************
+/* size
+/***************/
+.lbl-medium{
+    height: 41px;
+}
+
+/***************
+/* Position
+/***************/
+
+.lbl-top{
+    margin-bottom: 10px;
+    height: auto;
+    display: block;
+}
+.lbl-left{
+    display: inline;
+    margin-right: 20px;
+    display: table-cell;
+    vertical-align: middle;
+}
+

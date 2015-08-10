@@ -1,0 +1,464 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">Buttons</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Coral red</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Small size', {
+                    'size'        : 'btn-small',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Medium size (default)', {
+                    'size'        : 'btn-medium',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Large size', {
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar',
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Full width', {
+                    'color'       : 'btn-coral-red',
+                    'extra_class' : ['btn-full-width'],
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">White</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Small size', {
+                    'size'        : 'btn-small',
+                    'color'       : 'btn-white',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Medium size (default)', {
+                    'size'        : 'btn-medium',
+                    'color'       : 'btn-white',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Large size', {
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-white',
+                    'text'        : 'Guardar',
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Full width', {
+                    'color'       : 'btn-white',
+                    'extra_class' : ['btn-full-width'],
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Loading buttons</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'with loading (click in button to show loading)', {
+                    'id'          : 'js-save-button',
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar',
+                    'extra_class' : ['js-loading-button'],
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Facebook</h3>
+            </div>
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-small',
+                    'color' : 'btn-facebook',
+                    'text'  : 'facebook',
+                    'icon'  : 'icon-facebook'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-medium',
+                    'color' : 'btn-facebook',
+                    'text'  : 'facebook',
+                    'icon'  : 'icon-facebook'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-large',
+                    'color' : 'btn-facebook',
+                    'text'  : 'facebook',
+                    'icon'  : 'icon-facebook'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'color'       : 'btn-facebook',
+                    'extra_class' : ['btn-full-width'],
+                    'icon'        : 'icon-facebook',
+                    'text'        : 'facebook'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Twitter</h3>
+            </div>
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-small',
+                    'color' : 'btn-twitter',
+                    'text'  : 'twitter',
+                    'icon'  : 'icon-twitter'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-medium',
+                    'color' : 'btn-twitter',
+                    'text'  : 'twitter',
+                    'icon'  : 'icon-twitter'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'  : 'btn-large',
+                    'color' : 'btn-twitter',
+                    'text'  : 'twitter',
+                    'icon'  : 'icon-twitter'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'color'       : 'btn-twitter',
+                    'extra_class' : ['btn-full-width'],
+                    'icon'        : 'icon-twitter',
+                    'text'        : 'twitter'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">With Icons</h3>
+            </div>
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-small',
+                    'color'       : 'btn-white',
+                    'icon'        : 'icon-cart',
+                    'text'        : 'Guardar'
+                }) }}
+
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-medium',
+                    'color'       : 'btn-coral-red',
+                    'icon'        : 'icon-cart',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar',
+                    'icon'        : 'icon-cart',
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+            </div>
+
+            <div class="col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'color'       : 'btn-coral-red',
+                    'extra_class' : ['btn-full-width'],
+                    'icon'        : 'icon-cart',
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Only icon</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Small size', {
+                    'size'        : 'btn-small',
+                    'color'       : 'btn-coral-red',
+                    'text'        : '',
+                    'icon'        : 'icon-spin'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Medium size (default)', {
+                    'size'        : 'btn-medium',
+                    'color'       : 'btn-coral-red',
+                    'text'        : '',
+                    'icon'        : 'icon-spin'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Large size', {
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-coral-red',
+                    'text'        : '',
+                    'icon'        : 'icon-spin',
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', 'Full width', {
+                    'color'       : 'btn-coral-red',
+                    'extra_class' : ['btn-full-width'],
+                    'text'        : '',
+                    'icon'        : 'icon-spin'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Right Icons</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-small',
+                    'color'       : 'btn-coral-red',
+                    'text'        : 'Guardar',
+                    'icon'        : 'icon-arrow-right',
+                    'extra_class' : ['btn-icon-right'],
+                    'data'        : {
+                        'foo': 'bar',
+                        'bar': 'foo'
+                    }
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-medium',
+                    'color'       : 'btn-coral-red',
+                    'icon'        : 'icon-arrow-right',
+                    'extra_class' : ['btn-icon-right'],
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'size'        : 'btn-large',
+                    'color'       : 'btn-white',
+                    'icon'        : 'icon-arrow-right',
+                    'extra_class' : ['btn-icon-right'],
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-half large-col-one-quarter" >
+                {{ macros.styleguide_component('button', '', {
+                    'color'       : 'btn-coral-red',
+                    'icon'        : 'icon-arrow-right',
+                    'extra_class' : ['btn-icon-right', 'btn-full-width'],
+                    'text'        : 'Guardar'
+                }) }}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Button with two lines and icon (Only for link buttons)</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Web', {
+                    'size'        : 'btn-two-lines',
+                    'color'       : 'btn-coral-red',
+                    'pre_text'    : 'Entra en nuestra',
+                    'text'        : 'Web',
+                    'image'       : 'world.png',
+                    'extra_class' : ['btn-enter-web'],
+                    'url'         : 'http:/www.google.es',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Apple', {
+                    'size'        : 'btn-two-lines',
+                    'color'       : 'btn-app-store',
+                    'pre_text'    : 'Descarga gratis',
+                    'text'        : 'App Store',
+                    'image'       : 'apple.png',
+                    'url'         : 'http:/www.google.es',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Google Play', {
+                    'size'        : 'btn-two-lines',
+                    'color'       : 'btn-google-play',
+                    'pre_text'    : 'Descarga gratis',
+                    'text'        : 'Google Play',
+                    'image'       : 'googleplay.png',
+                    'url'         : 'https://play.google.com/store/apps/details?id=com.selltag&referrer=utm_source%3DselltagHome',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h3 class="styleguide-component-title">Button with two lines and small</h3>
+            </div>
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Web', {
+                    'size'        : 'btn-two-lines--small',
+                    'color'       : 'btn-coral-red',
+                    'pre_text'    : 'Entra en',
+                    'text'        : 'Web',
+                    'image'       : 'world.png',
+                    'extra_class' : ['btn-enter-web'],
+                    'url'         : 'http:/www.google.es',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Apple', {
+                    'size'        : 'btn-two-lines--small',
+                    'color'       : 'btn-app-store',
+                    'pre_text'    : 'Descarga',
+                    'text'        : 'App Store',
+                    'image'       : 'apple.png',
+                    'url'         : 'http:/www.google.es',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+
+            <div class="col-one-whole medium-col-one-third" >
+                {{ macros.styleguide_component('button', 'Google Play', {
+                    'size'        : 'btn-two-lines--small',
+                    'color'       : 'btn-google-play',
+                    'pre_text'    : 'Descarga',
+                    'text'        : 'Google Play',
+                    'image'       : 'googleplay.png',
+                    'url'         : 'https://play.google.com/store/apps/details?id=com.selltag&referrer=utm_source%3DselltagHome',
+                    'alt'         : 'Texto alternativo'
+                }) }}
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+
+    $( document ).ready(function() {
+
+      var buttonsView = new Selltag.View({
+        el: ".js-container"
+      });
+
+    });
+
+
+    </script>
+{% endblock %}
+

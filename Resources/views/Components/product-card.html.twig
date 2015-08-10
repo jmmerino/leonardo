@@ -1,0 +1,82 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "product" %}
+
+{% set classes = "product-card" %}
+
+{% if list_view is defined %}
+    {% set classes = classes ~ ' product-card_list'  %}
+{% endif %}
+
+{% set tag_classes = "" %}
+{% set status_text = "Nuevo" %}
+{% if is_new is defined %}
+    {% set classes = classes ~ ' is-new'  %}
+    {% set status_text = "Nuevo" %}
+    {% set tag_classes = "is-visible" %}
+{% else %}
+
+    {% if product.status == 0 %}
+        {% set classes = classes ~ ' is-draft'  %}
+        {% set status_text = "Borrador" %}
+        {% set tag_classes = "is-visible" %}
+    {% elseif product.status == 1 %}
+        {# {% if app.user and date(product['published_at']) > date(app.user.lastDateInWeb)|date_modify("-7 day") %}
+            {% set classes = classes ~ ' is-new'  %}
+            {% set status_text = "Nuevo" %}
+        {% endif %} #}
+    {% elseif product.status == 2 %}
+        {% set classes = classes ~ ' is-sold'  %}
+        {% set status_text = "Vendido" %}
+        {% set tag_classes = "is-visible" %}
+    {% endif %}
+
+{% endif %}
+
+
+{% if is_masonry_item is defined %}
+    {% set classes = classes ~ ' js-masonry-item'  %}
+{% endif %}
+
+<div class="js-product-card {{ classes }}" data-id="{{ product.id }}" data-json="{{ product|json }}">
+    <a class="product-card_link" href="{{ product.url }}">
+        <div class="proudct-item_image-wrapper" {% if product.main_photo_height is defined and product.main_photo_width is defined and product.main_photo_width > 0 %}style="padding-bottom: {{ (product.main_photo_height / product.main_photo_width)*100 }}%" {% else %} style="padding-bottom: 65%" {% endif %}>
+
+            <span class="producr-card__status-tag js-product-card-tag {{tag_classes}}">
+                {{ status_text }}
+            </span>
+            <div class="product-card_image_content">
+                <img data-no-retina class="product-card_image js-lazy-image" data-original="{{ product.main_photo|thumb("medium", "product") }}" alt="{{ product.name }}">
+            </div>
+        </div>
+        <div class="product-card_main-info_block">
+            <div class="product-card_main-info">
+                <span class="product-card_name">
+                    {{ product.name }}
+                </span>
+                <span class="product-card_price">
+                    {% if product.old_price and product.old_price > product.price %}
+                        <span class="product-card_price-old">
+                            {{ product.old_price|price(product.currency) }}
+                        </span>
+                    {% endif %}
+                    {{ product.price ? product.price|price(product.currency) : 'show.free'|trans }}
+                </span>
+            </div>
+        </div>
+        <div class="product-card_secondary-info_block hide-on-medium">
+            <div class="product-card_secondary-info">
+                {# TODO: Set distance #}
+                {% if product.user.user_profile.city %}
+                    <span class="product-card_city">
+                        {{ product.user.user_profile.city }}
+                    </span>
+                {% endif %}
+                <span class="product-card_stats">
+                    {% transchoice product.views with { "%num%": product.views } %}
+                        show.view_people
+                    {% endtranschoice %}
+                </span>
+            </div>
+        </div>
+    </a>
+</div>

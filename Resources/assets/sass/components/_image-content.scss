@@ -1,0 +1,17 @@
+.image-content{
+    display: table;
+}
+.image-content_image{
+    // Commended because of a problem with user profile badge
+    // float:left;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.image-content_content{
+    display: table-cell;
+    vertical-align: middle;
+}
+.image-content_content_title{
+    font-weight: 400;
+}

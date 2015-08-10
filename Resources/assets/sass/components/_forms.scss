@@ -1,0 +1,105 @@
+
+/***************
+/* General form styles
+/***************/
+
+.form_section-title{
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $light-gray;
+    @include respond-to(medium) {
+        font-size: 18px;
+    }
+}
+.form_field_info-text{
+    color: $medium-gray;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 5px 0;
+    line-height: 22px;
+}
+
+/*=================================
+=            Overrides            =
+=================================*/
+
+// Override foundation default forms styles
+// for selectize
+// TODO: Remove when foundation has been removed
+input[type="text"]{
+    .selectize-input &{
+        padding: 0;
+        height: auto;
+    }
+}
+.label_left{
+    float: left;
+}
+
+
+/*==========================================
+=            Form common styles            =
+==========================================*/
+.field-wrapper{
+    display: inline-block;
+
+    &.field-wrapper-full-width{
+        width: 100%;
+    }
+    &.error-is-visible{
+        .tool-message{
+            opacity: 1;
+            display: block;
+        }
+    }
+    &.has-error{
+        &:hover{
+            .tool-message{
+                opacity: 1;
+                display: block;
+            }
+        }
+    }
+}
+
+/*==================================
+=            Old styles            =
+==================================*/
+
+
+textarea {
+    font-size: 1.1rem;
+    box-shadow: none;
+    padding: 0.8rem 0.5rem;
+    min-height: 80px;
+    line-height: 1.5rem;
+}
+input.ui-autocomplete-input {
+    display: block;
+    font-size: 1rem;
+    color: $medium-black;
+    box-shadow: none;
+    height: 50px;
+    margin-bottom: 30px;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #CCC;
+}
+
+
+label.error {
+    color: $coral-red;
+    input, textarea, select {
+        border-color: $coral-red;
+    }
+    small {
+        background-color: $coral-red;
+        color: white;
+        font-size: .8rem;
+        padding: 4px 10px 3px;
+        margin-top: -10px;
+        border-radius: 1px;
+    }
+}

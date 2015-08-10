@@ -1,0 +1,375 @@
+
+/**
+ * Appearance
+ */
+.product-card{
+    @include border-radius(5px);
+    @include box-shadow(0px 1px 1px 0px rgba($medium-gray, 0.8));
+    background-color: #FFF;
+    position: relative;
+    &.product-card_list{
+        display: table;
+        width: 100%;
+        height: 100px;
+    }
+
+}
+.producr-card__status-tag{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    text-transform: uppercase;
+    padding: 7px 15px;
+    position: absolute;
+    top: 0;
+    color: white;
+    font-weight: 400;
+    max-width: 100%;
+    z-index: 100;
+
+    &.is-visible{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    //For admin
+    .is-draft &{
+        @include border-top-right-radius(5px);
+        @include border-bottom-left-radius(5px);
+        display: block;
+        right: 0;
+        background-color: $dark-gray;
+    }
+    .is-sold &{
+        @include border-top-right-radius(5px);
+        @include border-bottom-left-radius(5px);
+        background-color: $coral-red;
+        @extend .user-bg-color;
+        display: block;
+        right: 0;
+    }
+    .is-new &{
+        @include border-top-left-radius(5px);
+        @include border-bottom-right-radius(5px);
+        background-color: $medium-blue;
+        display: block;
+        left: 0;
+    }
+    .is-deleted &{
+        @include border-top-left-radius(5px);
+        @include border-bottom-right-radius(5px);
+        background-color: $user-red;
+        display: block;
+        left: 0;
+    }
+    .is-to-review &{
+        @include border-top-left-radius(5px);
+        @include border-bottom-right-radius(5px);
+        background-color: $user-purple;
+        display: block;
+        left: 0;
+    }
+    .admin_products_list-item &{
+        @include border-top-left-radius(3px);
+        @include border-bottom-right-radius(3px);
+        @include border-top-right-radius(0px);
+        @include border-bottom-left-radius(0px);
+        left: 0;
+        right: initial;
+    }
+
+}
+.product-card_link{
+    display: block;
+
+    .product-card_list &{
+        position: relative;
+        width: 100%;
+    }
+}
+.proudct-item_image-wrapper{
+    width: 100%;
+    position: relative;
+
+    // display: block;
+    margin-bottom: 11px;
+
+    .product-card_list &{
+        position: absolute;
+        top: 0;
+        padding-bottom: 0px;
+    }
+}
+.product-card_image_content{
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+.product-card_image{
+    @include border-top-left-radius(5px);
+    @include border-top-right-radius(5px);
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity:1;
+
+    // width: 100%;
+    // max-height: 250px;
+    // object-fit: contain;
+
+    .product-card_list &{
+        @include border-top-right-radius(0px);
+
+        @include border-top-left-radius(5px);
+        @include border-bottom-left-radius(5px);
+
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+}
+.product-card_name{
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    color: $medium-black;
+    text-align: center;
+    padding: 0 10px 6px 10px;
+    line-height: 19px;
+    word-wrap: break-word;
+
+    .product-card_list & {
+        margin-left: 120px;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .product_seller-block_products &{
+        font-size: 14px;
+    }
+}
+.product-card_price-old{
+    color: $medium-gray;
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: line-through;
+}
+.product-card_price{
+    color: $coral-red;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 15px;
+
+    .product-card_list & {
+        margin-left: 120px;
+        text-align: left;
+        padding-bottom: 0;
+    }
+}
+
+.product-card_main-info, .product-card_secondary-info{
+    .product-card_list &{
+        display: table-cell;
+        height: 100px;
+        vertical-align: middle;
+    }
+}
+.product-card_main-info_block{
+    .product-card_list & {
+        float: left;
+        width: 65%;
+    }
+}
+.product-card_secondary-info_block{
+    display: none;
+    float: right;
+    padding-right: 20px;
+    width: 35%;
+    @include respond-to(large) {
+        .product-card_list & {
+            display: table;
+        }
+    }
+
+}
+.product-card_city, .product-card_stats{
+    text-align: right;
+    display: block;
+    color: $dark-gray;
+    margin-bottom: 10px;
+}
+.product-card_stats{
+    margin-bottom: 0;
+}
+
+
+/**
+ * Size
+ */
+.products-container{
+    .user-profile &{
+        margin-bottom: 50px;
+        padding: 0 3.33%;
+        @include respond-to(small) {
+            padding: 0 2.5%;
+        }
+        @include respond-to(large) {
+            padding: 0;
+        }
+    }
+    .search &{
+        margin-bottom: 50px;
+        padding: 0 3.33%;
+        @include respond-to(x-small) {
+            padding: 0 2.5%;
+        }
+        @include respond-to(small) {
+            padding: 0;
+        }
+    }
+    .home &, .collection &{
+        @include transition;
+        margin-bottom: 50px;
+        padding: 0 3.33%;
+        @include respond-to(x-small) {
+            padding: 0 2.5%;
+        }
+        @include respond-to(medium) {
+            padding: 0 1.6%;
+        }
+        @include respond-to(large) {
+            padding: 0;
+        }
+    }
+}
+
+.product-card_gutter-sizer{
+    .user-profile &{
+        width: 3.33%;
+        @include respond-to(small) {
+            width: 2.5%;
+        }
+        @include respond-to(large) {
+            width: 2.5%;
+        }
+    }
+    .search &{
+        width: 3.33%;
+        @include respond-to(x-small) {
+            width: 2.5%;
+        }
+        @include respond-to(small) {
+            width: 2%;
+        }
+        @include respond-to(medium) {
+            width: 3.5%;
+        }
+        @include respond-to(large) {
+            width: 2.66%;
+        }
+    }
+    .home &, .collection &{
+        width: 3.33%;
+        @include respond-to(x-small) {
+            width: 2.5%;
+        }
+        @include respond-to(medium) {
+            width: 1.6%;
+        }
+        @include respond-to(large) {
+            width: 2%;
+        }
+    }
+}
+
+.product-card{
+    margin-bottom: 15px;
+    float: left;
+
+    .user-profile &{
+
+        &.js-masonry-item{
+            width: 45%;
+            @include respond-to(small) {
+                width: 30%;
+            }
+            @include respond-to(medium) {
+                width: 30%;
+            }
+            @include respond-to(large) {
+                width: 18%;
+            }
+
+            .no-js &{
+                margin-left: 3.33%;
+                @include respond-to(small) {
+                    margin-left: 2.5%;
+                }
+                @include respond-to(large) {
+                    margin-left: 1.6666%;
+                }
+            }
+        }
+    }
+
+    .search &{
+        &.js-masonry-item{
+            width: 45%;
+            @include respond-to(x-small) {
+                width: 30%;
+            }
+            @include respond-to(small) {
+                width: 49%;
+            }
+            @include respond-to(medium) {
+                width: 31%;
+            }
+            @include respond-to(large) {
+                width: 23%;
+            }
+
+            .no-js &{
+                margin-left: 3.33%;
+                @include respond-to(small) {
+                    margin-left: 1%;
+                }
+                @include respond-to(medium) {
+                    margin-left: 2.333%;
+                }
+                @include respond-to(large) {
+                    margin-left: 1.6666%;
+                }
+            }
+        }
+    }
+
+    .home &, .collection &{
+        &.js-masonry-item{
+            width: 45%;
+            @include respond-to(x-small) {
+                width: 30%;
+            }
+            @include respond-to(medium) {
+                width: 23%;
+            }
+            @include respond-to(large) {
+                width: 18.4%;
+            }
+
+            .no-js &{
+                margin-left: 3.33%;
+                @include respond-to(x-small) {
+                    margin-left: 2.5%;
+                }
+                @include respond-to(medium) {
+                    margin-left: 1.6%;
+                }
+                @include respond-to(large) {
+                    margin-left: 1.6%;
+                }
+            }
+        }
+    }
+
+
+}

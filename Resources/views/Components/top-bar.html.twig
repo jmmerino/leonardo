@@ -1,0 +1,105 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "topbar" %}
+
+{% if is_android_os() %}
+    {{ macros.ui_component('smart-banner', {
+        "title_app": "Selltag: Vende de Segunda Mano",
+        "store": "Play Store",
+        "icon": "/bundles/selltagmain/images/selltag-play-store-icon.png",
+        "link": "http://app.appsflyer.com/com.selltag?pid=web&c=homemv"
+    }) }}
+{% elseif is_device("iPhone") %}
+    {{ macros.ui_component('smart-banner', {
+        "title_app": "Selltag Anuncios de Segunda Mano gratis",
+        "store": "App Store",
+        "icon": "/bundles/selltagmain/images/selltag-play-store-icon.png",
+        "link": "http://app.appsflyer.com/id977924091?pid=web&c=homemv"
+    }) }}
+{% endif %}
+
+<header class="top-bar js-top-bar">
+    <div class="container">
+        <a class="top-bar__link-logo" href="{{ path(home_url) }}" title="{{ 'logo_alt'|trans }}">
+            <img data-no-retina alt="{{ 'logo_alt'|trans }} " class="top-bar__img-logo" src="{{ asset('/bundles/selltagmain/images/' ~ logo ) }}">
+        </a>
+
+        {% if admin_user is defined %}
+            <div class="top-bar__header-menu__wrapper split-right">
+                {% include "SelltagMainBundle:Common:_userMenu.html.twig" %}
+            </div>
+        {% endif %}
+
+        {% if menu is defined and menu|length > 0 %}
+            {% include "SelltagMainBundle:Common:_topBarMenu.html.twig" %}
+        {% endif %}
+
+        {% if user is defined and user is not empty %}
+            {% set current_route = app.request.attributes.get('_route') %}
+            {% if current_route != "_homepage" and current_route != "search" and current_route != "error_404" and current_route != "product_new" and current_route != "product_edit" %}
+                <div class="top-bar__search__wrapper">
+                    <div class="top-bar__search-box">
+                        {{
+                            macros.ui_component("text-input", {
+                                "id": "txt-search",
+                                "size": "header",
+                                "name": "txt-search",
+                                "extra_class": "txt-full-width js-txt-search",
+                                "placeholder": "search_placeholder"|trans,
+                                "icon":"icon-search"
+                            } )
+                        }}
+                    </div>
+                    <div class="top-bar__search-button hide-on-small">
+                        {{
+                            macros.ui_component("button", {
+                                "extra_class": ["js-btn-search"],
+                                "is_hidden": true,
+                                "text": "buttons.search"|trans({}, "messages")
+                            } )
+                        }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {% if user is defined %}
+            {% if user is not empty %}
+                <div class="top-bar__header-menu__wrapper split-right">
+
+                    <a href="#" class="lnk-dark-gray top-bar__link hide-on-x-small js-show-messages" data-modal=".js-modal-chat">
+                        <span class="js-chat-counter-total chat_channel_counter"></span>
+                        <i class="icon-messages icon-3x"></i>
+                        <span class="hide-on-small">
+                            {{ "main_menu.messages"|trans }}
+                        </span>
+                    </a>
+
+                    {% include "SelltagMainBundle:Common:_helpMenu.html.twig" %}
+                    {% include "SelltagMainBundle:Common:_userMenu.html.twig" %}
+                </div>
+            {% else %}
+                <div class="top-bar__header-menu__wrapper split-right">
+                    <div class="top-bar__block">
+                        {{
+                            macros.ui_component("button", {
+                                "extra_class": ["top-bar__publish-button", "split-right", "hide-on-small", "js-modal-trigger"],
+                                "text": "button.publish_ad"|trans(),
+                                "data": {
+                                    "modal": ".js-modal-login-new-product"
+                                }
+                            } )
+                        }}
+                    </div>
+                    <a href="#" class="lnk-blue top-bar__link js-modal-trigger top-bar__link-connect" data-modal=".js-modal-login">{{ 'user_menu.login'|trans }}</a>
+                </div>
+
+            {%  endif %}
+        {%  endif %}
+
+    </div>
+
+
+    {% if user is defined and user is not empty %}
+        {% include 'SelltagMainBundle:Common:_responsiveMenu.html.twig' %}
+    {% endif %}
+</header>

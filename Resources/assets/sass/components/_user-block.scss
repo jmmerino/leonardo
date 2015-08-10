@@ -1,0 +1,54 @@
+.user-block_products{
+    padding: 10px;
+}
+.user-block_title{
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    padding: 25px 0 20px;
+    text-transform: uppercase;
+}
+.user-block_header{
+    background-image: url(/../bundles/selltagmain/images/bg-user-header.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+.user-block_tab-link{
+    display: block;
+    color: white;
+    &:hover, &:active{
+        color: white;
+    }
+    &.on-left{
+        margin-left: 15px;
+    }
+}
+.user-block_tab-content{
+    display: table;
+    [class*="icon-"] {
+        color: rgba(0,0,0,0.3);
+        display: table-cell;
+        &:before{
+            font-size: 40px;
+        }
+    }
+}
+.user-block_tabs_link-text{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 400;
+}
+.user-block_tabs_link-number{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    padding-left: 3px;
+    font-weight: 500;
+}
+.user-block_header{
+    .user-profile_name{
+        font-size: 24px;
+    }
+}

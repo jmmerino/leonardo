@@ -1,0 +1,42 @@
+{% import 'SelltagMainBundle:Common:macro.html.twig' as macros %}
+
+<div class="smart-banner js-smart-banner">
+
+    <div class="smart-banner__left">
+        <div class="smart-banner__close">
+            <a href="#" class="js-btn-close">
+                <i class="icon-x"></i>
+            </a>
+        </div>
+        <div class="smart-banner__content">
+            <div class="image-content">
+                <a href="{{ link }}" class="image-content_image">
+                    <img class="smart-banner__icon" src="{{ icon }}" alt="Selltag - Descarga Gratis">
+                </a>
+                <div class="image-content_content">
+                    <a href="{{ link }}" class="smart-banner__title">
+                        {{ title_app }}
+                    </a>
+                    <div class="smart-banner__stars">
+                        <i class="icon-favourites-solid"></i>
+                        <i class="icon-favourites-solid"></i>
+                        <i class="icon-favourites-solid"></i>
+                        <i class="icon-favourites-solid"></i>
+                        <i class="icon-favourites-solid"></i>
+                    </div>
+                    <div class="smart-banner__text">
+                        Descarga Gratis - En la {{ store }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="smart-banner__right">
+        <div class="smart-banner__right__content">
+            <div class="smart-banner__content">
+                <a class="smart-banner__download-link" href="{{ link }}">Descargar</a>
+            </div>
+        </div>
+    </div>
+</div>

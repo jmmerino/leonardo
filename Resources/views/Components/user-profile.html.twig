@@ -1,0 +1,135 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "userprofile" %}
+
+{% if size is not defined %}
+    {% set size = "medium" %}
+{% endif %}
+
+{% if content is not defined %}
+    {% set content = "" %}
+{% endif %}
+
+{% if extra_class is not defined %}
+    {% set extra_class = "" %}
+{% endif %}
+
+{% if user is defined %}
+
+    <div class="{% if content != "only-image" %}image-content{% endif %} user-profile user-profile-{{ size }} {{extra_class}} js-user-profile" data-json="{{user|json}}">
+        <div class="user-profile_image-wrapper">
+            <i class="icon-spin animate-spin"></i>
+            <img data-no-retina src="{{ user.userProfile.avatar|thumb("medium", "user", user.userProfile.gender) }}" alt="{{ user.userProfile.name }}" class="{% if content != "only-image" %}image-content_image{% endif %} user-profile_image js-user-profile-image">
+            {% if user.verifiedMobile %}
+            <img data-no-retina class="user-profile_verified-image" src="{{ asset('/bundles/selltagmain/images/ico-tick.png') }}">
+            {% endif %}
+        </div>
+
+        {% if content == "edit" %}
+            <div class="image-content_content">
+                <a href="#" class="image-content_content_title lnk-dark-gray lnk-uppercase">
+                    {{ 'change_photo'|trans() }}
+                </a>
+            </div>
+        {% elseif content != "only-image" %}
+            <div class="image-content_content">
+
+
+                {% if user.blocked %}
+                    <i class="icon-lock" title="{{ "blocked_user"|trans }}"></i>
+                {% endif %}
+                {% if user.deletedAt is not empty %}
+                    <i class="icon-cancel-circled2" title="{{ "deleted_user"|trans }}"></i>
+                {% endif %}
+
+                {% if rol is defined %}
+                    <span class="user-profile_rol">{{ rol }}</span>
+                {% endif %}
+
+
+                <a href="{{ macros.user_url(user.userProfile.getVanityUrl, user.id) }}" class="image-content_content_title user-profile_name">
+                {{ user.userProfile.getShortName }}
+                </a>
+
+
+                <div class="image-content_content_description user-profile_content">
+
+                    {% if content == "admin-numbers" %}
+                        <div class="user-profile_content_icon">
+                            <i class="icon-ads-for-sale icon-2x"></i>
+                            <span class="user-profile_number" title="{{ "stats.ads_selling"|trans }}">
+                                {% if user.sellingCount is empty %}
+                                    0
+                                {% else %}
+                                    {{user.sellingCount}}
+                                {% endif %}
+
+                            </span>
+
+                            <span class="user-profile_number" title="{{ "stats.ads_sold"|trans }}">
+                                {% if user.soldCount is empty %}
+                                    0
+                                {% else %}
+                                    {{user.soldCount}}
+                                {% endif %}
+                            </span>
+
+                            {# TODO: Number of deleted ads #}
+                            {# <span class="user-profile_number" title="{{ "stats.deleted_ads"|trans }}">
+                                {{user.deletedCount}}
+                            </span> #}
+                        </div>
+                        {# TODO: Number of saved searchs #}
+                        <div class="user-profile_content_icon">
+                            <i class="icon-search icon-2x"></i>
+                            <span class="user-profile_number" title="{{ "stats.number_search"|trans }}">
+                                {% if user.searchCount is empty %}
+                                    0
+                                {% else %}
+                                    {{user.searchCount}}
+                                {% endif %}
+                            </span>
+                        </div>
+
+                        <div class="user-profile_content_icon">
+                            <i class="icon-messages icon-2x"></i>
+                            <span class="user-profile_number" title="{{ "stats.number_chats_initiated"|trans }}">
+                                {% if user.chatStartedCount is empty %}
+                                    0
+                                {% else %}
+                                    {{user.chatStartedCount}}
+                                {% endif %}
+                            </span>
+                            <span class="user-profile_number" title="{{ "stats.number_chats_received"|trans }}">
+                                {% if user.chatReceivedCount is empty %}
+                                    0
+                                {% else %}
+                                    {{user.chatReceivedCount}}
+                                {% endif %}
+                            </span>
+                            {# TODO: Number of the users who has blocked him #}
+                            {# <span class="user-profile_number" title="{{ "stats.number_blocks"|trans }}">
+                                0
+                            </span> #}
+                        </div>
+                    {% elseif content == "email" %}
+                        <span class="user-profile__email">
+                            {{ user.email }}
+                        </span>
+
+                    {% elseif content == "city" %}
+                        <span class="user-profile__city">
+                            {{ user.userProfile.city }}
+                        </span>
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% else %}
+
+No user
+
+{% endif %}
+

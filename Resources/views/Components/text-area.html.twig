@@ -1,0 +1,31 @@
+
+{% set classes = 'txt' %}
+{% if size is defined %}
+    {% set classes = classes ~ ' txt-' ~ size %}
+{% else %}
+    {% set classes = classes ~ ' txt-medium' %}
+{% endif %}
+
+{% if extra_class is defined %}
+    {% set classes = classes ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if type is not defined %}
+    {% set type = "text" %}
+{% endif %}
+
+{% if data is defined %}
+    {% set data_attr = "" %}
+    {% for key,value in data %}
+        {% if value %}
+            {% set data_attr = data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+        {% else %}
+            {% set data_attr = data_attr ~ " data-" ~ key %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+<div class="field-wrapper field-wrapper-full-width js-{{id}}-wrapper">
+    <textarea autocomplete="off" {% if rows is defined %}rows="{{rows}}"{% endif %} {% if id is defined %}id="{{id}}"{% endif %} {% if name is defined %}name="{{name}}"{% endif %} type="{{type}}" class="{{classes}}" {% if placeholder is defined %}placeholder="{{placeholder}}"{% endif %} {% if data_attr is defined %}{{data_attr|raw}}{% endif %}>{% if value is defined %}{{value}}{% endif %}</textarea>
+    {% include 'SelltagMainBundle:Common:errorTooltip.html.twig' %}
+</div>

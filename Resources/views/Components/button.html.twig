@@ -1,0 +1,100 @@
+{# Button Component #}
+{#
+    Properties:
+    - id          : Id for the button
+    - size        : Size of the button (see buttons.scss)
+    - color       : Color for the button (see buttons.scss)
+    - icon        : Icon to add inside the button
+    - extra_class : array() with extra classes (like the js-xxx classes)
+    - data        : data attributes
+    - alt         : Alternate text
+    - is_hidden   : true|false to show/hide button
+    - blank       : true if you want the link in a blank page
+    - text        : The text of the button
+
+    Only for button
+    - value       : (only for <button>) Value for the button
+    - type        : (only for <button>) Type of the button
+
+    Only for A
+    - url         : If this is set, the button will be an "<a>" element
+    - image       : (only for <a>) Image inside the button
+    - retina      : true if there is a retina version of the image
+    - pre_text    : (only for <a>) Text that is added before the main text
+ #}
+
+{% autoescape false %}
+    {% if url %}
+        <a
+            href="{{ url }}"
+            class="{{ classes }}"
+            {{alt|html_attribute("title")}}
+            {{alt|html_attribute("alt")}}
+            {{id|html_attribute("id")}}
+            {{data|raw}}
+
+            {% if is_hidden %}
+                style="display:none"
+            {% endif %}
+
+            {% if blank %}
+                target="_blank"
+            {% endif %}
+            >
+
+                {% if "btn-icon-right" not in classes %}
+                    <i {{icon|html_attribute("class")}}></i>
+                {% endif %}
+
+                {% if image %}
+                    <img
+                        class="btn_image"
+                        src="{{ asset('/bundles/selltagmain/images/buttons/' ~ image) }}"
+                        {{alt|html_attribute("alt")}}
+                        {% if retina %}
+                            data-no-retina
+                        {% endif %}
+                        />
+                {% endif %}
+
+                {% if pre_text %}
+                    <div class="btn_content">
+                        <span class="btn_pre-text">
+                            {{pre_text}}
+                        </span>
+                        {{text}}
+                    </div>
+                {% else %}
+                    {{text}}
+                {% endif %}
+
+                {% if "btn-icon-right" in classes %}
+                    <i {{icon|html_attribute("class")}}></i>
+                {% endif %}
+        </a>
+    {% else %}
+        <button
+            class="{{classes}}"
+            {{id|html_attribute("id")}}
+            {{data|raw}}
+            {{value|html_attribute("value")}}
+            {{alt|html_attribute("title")}}
+            {{type|html_attribute("type")}}
+
+            {% if is_hidden %}
+                style="display:none"
+            {% endif %}
+            >
+
+                {% if "btn-icon-right" not in classes %}
+                <i {{icon|html_attribute("class")}}></i>
+                {% endif %}
+
+                {{text}}
+
+                {% if "btn-icon-right" in classes %}
+                <i {{icon|html_attribute("class")}}></i>
+                {% endif %}
+        </button>
+    {% endif %}
+{% endautoescape %}

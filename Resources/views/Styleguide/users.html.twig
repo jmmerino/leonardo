@@ -1,0 +1,90 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ "styleguide.title"|trans }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h2 class="styleguide-component-main-title">Cabecera de usuario</h2>
+    </div>
+    <div class="row">
+        <div class="grid-0">
+            <div class="col-one-whole">
+                {{
+                    macros.styleguide_component('user-header', "Like user page",
+                        {
+                            "user": app.user,
+                            "status": "available",
+                            "facebookFriendsCount": 185,
+                            "twitterFollowersCount": 256
+                        })
+                }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-one-whole">
+            <h2 class="styleguide-component-main-title">Bloque de usuario</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-0">
+            <div class="col-one-third">
+                {{
+                    macros.styleguide_component('user-block', "User block",
+                        {
+                            "user": app.user
+                        })
+                }}
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-one-whole">
+            <h2 class="styleguide-component-main-title">Bloque de perfil usuario</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-30">
+            <div class="col-one-half">
+                {{ macros.styleguide_component("user-profile", "User profile empty", {
+                    "user": app.user
+                }) }}
+            </div>
+            <div class="col-one-half">
+                {{ macros.styleguide_component("user-profile", "User profile with numbers (for admin)", {
+                    "user": app.user,
+                    "size": "small",
+                    "content": "admin-numbers"
+                }) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-30">
+            <div class="col-one-half">
+                {{ macros.styleguide_component("user-profile", "User profile", {
+                    "user": app.user,
+                    "size": "large",
+                    "content": "city"
+                }) }}
+            </div>
+            <div class="col-one-half">
+                {{
+                    macros.styleguide_component('user-profile', "Only image",
+                        {
+                            "user": app.user,
+                            "size": "small",
+                            "content": "only-image"
+                        })
+                }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

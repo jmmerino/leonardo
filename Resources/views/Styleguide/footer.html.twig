@@ -1,0 +1,33 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }} - {{ 'submenu_components.footer'|trans() }} {% endblock %}
+
+{% block content %}
+    <div class="grid-0">
+        <div class="row">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">{{ 'submenu_components.footer'|trans() }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('footer', 'Footer complete', {
+                    type: "complete"
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('footer', 'Footer simple', {
+                    type: "simple"
+                }) }}
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

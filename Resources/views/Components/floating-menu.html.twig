@@ -1,0 +1,31 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+
+{% if position is not defined %}
+    {% set position = "bottom" %}
+{% endif %}
+
+<a class="js-menu-tooltip-{{position}} {% if extra_class is defined %} {{extra_class}} {% endif %}" href="{{ item['url'] }}" {% if item['slug'] is defined %}data-content="js-{{ item['slug'] }}"{% endif %}>
+    {% if item['icon'] is defined %}
+        <i class="{{ item['icon'] }}"></i>
+    {% endif %}
+    {% if item['text'] is defined %}
+        {{ item['text'] }}
+    {% endif %}
+</a>
+
+{% if item['submenu'] is defined %}
+    <div class="tooltip-options {% if item['slug'] is defined %}js-{{ item['slug'] }}{% endif %}">
+        {{
+            macros.ui_component('menu',
+            {
+                "extra_class": "js-main-nav",
+                "menu_items": item['submenu']
+            })
+        }}
+
+    </div>
+{% elseif item['submenu_template'] is defined %}
+    <div class="tooltip-options {% if item['slug'] is defined %}js-{{ item['slug'] }}{% endif %}">
+        {% include item['submenu_template'] %}
+    </div>
+{% endif %}

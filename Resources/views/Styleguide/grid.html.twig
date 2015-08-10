@@ -1,0 +1,164 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <h2>Grid</h2>
+        <div class="grid-20">
+            <div class="col-one-half">
+                <div class="styleguide-grid-content">One half</div>
+            </div>
+            <div class="col-one-half">
+                <div class="styleguide-grid-content">One half</div>
+            </div>
+        </div>
+
+
+        <div class="grid-20">
+            <div class="col-one-third">
+                <div class="styleguide-grid-content">One third</div>
+            </div>
+            <div class="col-one-third">
+                <div class="styleguide-grid-content">One third</div>
+            </div>
+            <div class="col-one-third">
+                <div class="styleguide-grid-content">One third</div>
+            </div>
+        </div>
+        <div class="grid-20">
+            <div class="col-one-third">
+                <div class="styleguide-grid-content">One third</div>
+            </div>
+            <div class="col-two-thirds">
+                <div class="styleguide-grid-content">Two thirds</div>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="col-one-quarter">
+                <div class="styleguide-grid-content">One quarter</div>
+            </div>
+            <div class="col-one-quarter">
+                <div class="styleguide-grid-content">One quarter</div>
+            </div>
+            <div class="col-one-quarter">
+                <div class="styleguide-grid-content">One quarter</div>
+            </div>
+            <div class="col-one-quarter">
+                <div class="styleguide-grid-content">One quarter</div>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="col-one-fifth">
+                <div class="styleguide-grid-content">One fifth</div>
+            </div>
+            <div class="col-one-fifth">
+                <div class="styleguide-grid-content">One fifth</div>
+            </div>
+            <div class="col-one-fifth">
+                <div class="styleguide-grid-content">One fifth</div>
+            </div>
+            <div class="col-one-fifth">
+                <div class="styleguide-grid-content">One fifth</div>
+            </div>
+            <div class="col-one-fifth">
+                <div class="styleguide-grid-content">One fifth</div>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <h2>Responsive Grid</h2>
+        <div class="grid-20">
+            <div class="medium-col-one-half small-col-one-whole">
+                <div class="styleguide-grid-content">Small One Whole - Medium One half</div>
+            </div>
+            <div class="medium-col-one-half small-col-one-whole">
+                <div class="styleguide-grid-content">Small One Whole - Medium One half</div>
+            </div>
+        </div>
+
+        <div class="grid-20">
+            <div class="small-col-one-half large-col-one-third">
+                <div class="styleguide-grid-content">small-col-one-half large-col-one-third</div>
+            </div>
+            <div class="small-col-one-half large-col-one-third">
+                <div class="styleguide-grid-content">small-col-one-half large-col-one-third</div>
+            </div>
+            <div class="small-col-one-whole large-col-one-third">
+                <div class="styleguide-grid-content">small-col-one-whole large-col-one-third</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2>Centered columns</h2>
+        <div class="grid-20">
+            <div class="col-one-half col-centered centered">
+                <div class="styleguide-grid-content">Col one half, centered</div>
+            </div>
+            <div class="col-one-third col-centered centered">
+                <div class="styleguide-grid-content">Col one third, centered</div>
+            </div>
+            <div class="col-one-quarter col-centered centered">
+                <div class="styleguide-grid-content">Col one quarter, centered</div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <h2>Offsets</h2>
+        <p>Add some margin of the same size of the columns</p>
+        <div class="grid-20">
+            <div class="row">
+                <div class="col-one-half offset-one-fifth">
+                    <div class="styleguide-grid-content">col-one-half offset-one-fifth</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-one-half offset-one-quarter">
+                    <div class="styleguide-grid-content">col-one-half offset-one-quarter</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-one-half offset-one-third">
+                    <div class="styleguide-grid-content">col-one-half offset-one-third</div>
+                </div>
+            </div>
+            <div class="col-one-whole">
+                <p>Usefull to center columns, like the next ones</p>
+            </div>
+            <div class="row">
+                <div class="col-one-half offset-one-quarter">
+                    <div class="styleguide-grid-content">col-one-half offset-one-quarter</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-one-third offset-one-third">
+                    <div class="styleguide-grid-content">col-one-third offset-one-third</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-one-half offset-one-quarter">
+                    <div class="styleguide-grid-content">col-one-half offset-one-quarter</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-one-fifth offset-two-fifths">
+                    <div class="styleguide-grid-content">col-one-fifth offset-two-fifths</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+>>>>>>> Some improvements in grid system
+
+{% endblock %}

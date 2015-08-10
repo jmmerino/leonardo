@@ -1,0 +1,20 @@
+{% import 'SelltagMainBundle:Common:macro.html.twig' as macros %}
+
+{% set classes = 'lbl' %}
+{% if size is defined %}
+    {% set classes = classes ~ ' lbl-' ~ size %}
+{% else %}
+    {% set classes = classes ~ ' lbl-medium' %}
+{% endif %}
+
+{% if extra_class is defined %}
+    {% set classes = classes ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if position is defined %}
+    {% set classes = classes ~ ' lbl-' ~ position %}
+{% endif %}
+
+<label for="{{ text_input_id is defined ? text_input_id : "" }}" class="{{ classes }}">
+    {{text}}
+</label>

@@ -1,0 +1,22 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <h2 class="styleguide-component-main-title">Paleta de colores</h2>
+    </div>
+
+    <div class="grid-20">
+    {% for color in colours %}
+        <div class="col-one-fifth styleguide_colour" >
+            <span class="styleguide_colour-block" style="background-color: {{ color.value }}"></span>
+            <p>{{ color.name }} - {{ color.value }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+
+{% endblock %}

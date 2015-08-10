@@ -1,0 +1,31 @@
+{% if name is not defined %}
+    {% set name = "checkbox-default-name" %}
+{% endif %}
+
+{% if data is defined %}
+    {% set data_attr = "" %}
+    {% for key,value in data %}
+        {% if value is not empty %}
+            {% set data_attr = data_attr ~ " data-" ~ key ~ "=\"" ~ value ~ "\"" %}
+        {% else %}
+            {% set data_attr = data_attr ~ " data-" ~ key %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<div class="checkbox field-wrapper {% if icon is defined %}w-icon{% endif %} {% if extra_class is defined and 'full-width' in extra_class %}field-wrapper-full-width{% endif %} js-{{id}}-wrapper">
+    <input autocomplete="off" {% if is_disabled is defined and is_disabled %}disabled="disabled"{% endif %} {% if is_checked is defined and is_checked %}checked{% endif %} id="{{id}}" name="{{name}}" class="{{ extra_class is defined ? extra_class : "" }}" {% if data_attr is defined %}{{data_attr|raw}}{% endif %} type="checkbox">
+    <span></span>
+    <label for="{{id}}" class="js-{{id}}-label">
+        {% if icon is defined %}
+            <i class="{{icon}}"></i>
+        {% endif %}
+        {% if text is defined %}
+            {{ text|raw }}
+        {% endif %}
+    </label>
+
+    {% include 'SelltagMainBundle:Common:errorTooltip.html.twig' %}
+</div>
+

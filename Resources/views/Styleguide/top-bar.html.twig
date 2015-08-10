@@ -1,0 +1,73 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }} - {{ 'submenu_components.top_bar'|trans() }} {% endblock %}
+
+{% block content %}
+    <div class="grid-0">
+        <div class="row">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">Top Bar</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('top-bar', 'Top bar empty', {
+                    'logo'        : 'selltag-home.png',
+                    'home_url'    : '_homepage'
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('top-bar', 'Top bar with user (require a loged user)', {
+                    'logo'        : 'selltag-logo-small.png',
+                    'home_url'    : '_homepage',
+                    'user'        : app.user
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('top-bar', 'Top bar no user logged in', {
+                    'logo'        : 'selltag-logo-small.png',
+                    'home_url'    : '_homepage',
+                    'user'        : {}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-one-whole">
+                {{ macros.styleguide_component('top-bar', 'Top bar with menu and submenu', {
+                    'logo'        : 'selltag-logo-small.png',
+                    'text'       : 'Selltag',
+                    'home_url'    : '_homepage',
+                    'menu'        : [
+                        {
+                            'text': 'Menú con submenú',
+                            'url': path('admin_products'),
+                            'slug': 'admin_products',
+                            'submenu': [
+                                {
+                                    'text': 'Submenú 1',
+                                    'url': path('admin_products')
+                                },
+                                {
+                                    'text': 'Submenú 2',
+                                    'url': path('admin_products')
+                                }
+                            ]
+                        },
+                        {'text': 'Menú 2', 'url': 'admin_products'},
+                        {'text': 'Menú 3', 'url': 'admin_products'}
+                    ]
+                }) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

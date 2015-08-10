@@ -1,0 +1,51 @@
+
+{% set classes = 'txt' %}
+{% if size is defined %}
+    {% set classes = classes ~ ' txt-' ~ size %}
+    {% set icon_size = size %}
+{% else %}
+    {% set classes = classes ~ ' txt-medium' %}
+    {% set icon_size = "medium" %}
+{% endif %}
+
+{% if pre is defined %}
+    {% set classes = classes ~ ' with-pre' %}
+{% endif %}
+
+{% if extra_class is defined %}
+    {% set classes = classes ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if type is not defined %}
+    {% set type = "text" %}
+{% endif %}
+
+{% if data is defined %}
+    {% set data_attr = "" %}
+    {% for key,value in data %}
+        {% if value %}
+            {% set data_attr = data_attr ~ " data-" ~ key ~ "=\'" ~ value ~ "\'" %}
+        {% else %}
+            {% set data_attr = data_attr ~ " data-" ~ key %}
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<div class="field-wrapper js-{{id}}-wrapper {% if 'full-width' in classes %}field-wrapper-full-width{% endif %} {% if is_floated is defined %}split-left{% endif %}" >
+    {% if pre is defined %}
+        <span class="txt-pre hide-on-x-small">
+            {{ pre }}
+        </span>
+    {% endif %}
+    {% if icon is defined %}
+        <i class="txt-icon {{ icon }} txt-icon-{{icon_size}}"></i>
+    {% endif %}
+    <input {% if is_hidden is defined %}style="display:none"{% endif %} autocomplete="off" {% if id is defined %}id="{{id}}"{% endif %} {% if name is defined %}name="{{name}}"{% endif %} type="{{type}}" class="{{classes}}" {% if placeholder is defined %}placeholder="{{placeholder}}"{% endif %} {% if value is defined %}value="{{value}}"{% endif %} {% if data_attr is defined %}{{data_attr|raw}}{% endif %} {% if is_disabled is defined %}disabled="disabled"{% endif %} />
+
+    {% if post_input is defined %}
+        {{post_input}}
+    {% endif %}
+    {% include 'SelltagMainBundle:Common:errorTooltip.html.twig' %}
+</div>
+

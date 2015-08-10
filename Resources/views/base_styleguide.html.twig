@@ -1,0 +1,144 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "styleguide" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('/bundles/selltagmain/images/favicon.ico') }}" />
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+        {% include "LeonardoBundle:Stylesheet:stylesheet.html.twig" %}
+
+        {% block metatags %}{% endblock %}
+
+        <title>{% block title %}Selltag{% endblock %}</title>
+    {% endblock %}
+
+    {% include "SelltagMainBundle:Common:mixpanel.html.twig" %}
+
+</head>
+
+    {% set user_color = 'orange' %}
+    {% if app.user %}
+        {% if app.user.userProfile.colour == '#FFAF40' %}
+            {% set user_color = 'yellow' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#FE583B' %}
+            {% set user_color = 'orange' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#F03542' %}
+            {% set user_color = 'red' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#FF549C' %}
+            {% set user_color = 'pink' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#A07BA8' %}
+            {% set user_color = 'purple' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#3CA4F0' %}
+            {% set user_color = 'blue' %}
+        {% endif %}
+        {% if app.user.userProfile.colour == '#00BE90' %}
+            {% set user_color = 'green' %}
+        {% endif %}
+    {% endif %}
+
+<body class="bordered-body user-{{user_color}}">
+
+    {{ macros.ui_component('top-bar', {
+            'logo'        : 'selltag-logo-small.png',
+            'title'       : 'Selltag',
+            'home_url'    : '_homepage',
+            'menu'        : [
+                {'text': 'menu.colours'|trans, 'url': path('styleguide_colours')},
+                {'text': 'menu.grid'|trans, 'url': path('styleguide_grid')},
+                {
+                    'text': 'menu.components'|trans,
+                    'url': path('styleguide_buttons'),
+                    'slug': 'styleguide_buttons',
+                    'submenu': [
+                        {
+                            'text': 'submenu_components.top_bar'|trans,
+                            'url': path('styleguide_top_bar'),
+                        },
+                        {
+                            'text': 'submenu_components.footer'|trans,
+                            'url': path('styleguide_footer'),
+                        },
+                        {
+                            'text': 'submenu_components.buttons'|trans,
+                            'url': path('styleguide_buttons'),
+                        },
+                        {
+                            'text': 'submenu_components.forms'|trans,
+                            'url': path('styleguide_forms'),
+                        },
+                        {
+                            'text': 'submenu_components.users'|trans,
+                            'url': path('styleguide_users'),
+                        },
+                        {
+                            'text': 'submenu_components.icons'|trans,
+                            'url': path('styleguide_icons'),
+                        },
+                        {
+                            'text': 'submenu_components.menu'|trans,
+                            'url': path('styleguide_menu'),
+                        },
+                        {
+                            'text': 'submenu_components.product'|trans,
+                            'url': path('styleguide_product'),
+                        }
+                    ]
+                },
+                {
+                    'text': 'menu.js_components'|trans,
+                    'url': '#',
+                    'slug': 'styleguide_js_components',
+                    'submenu': [
+                        {
+                            'text': 'submenu_js_components.noti'|trans,
+                            'url': path('styleguide_noti'),
+                        },
+                        {
+                            'text': 'submenu_js_components.tooltips'|trans,
+                            'url': path('styleguide_tooltips'),
+                        }
+
+                    ]
+                }
+            ]
+        }) }}
+
+    <div class="container js-container styleguide-container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    {{ macros.ui_component("footer", { type: "complete" }) }}
+
+    {% include "SelltagMainBundle:Scripts:javascript.html.twig" %}
+    {{ macros.ui_component("noti") }}
+
+    {% block javascript %}
+
+    {% endblock %}
+
+    <script type="text/javascript">
+    $(function() {
+        $(".js-view-code").click(function(e) {
+            $(e.currentTarget).siblings(".js-code-block").toggle();
+            e.preventDefault();
+        });
+    })
+    </script>
+
+
+</body>
+</html>

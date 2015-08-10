@@ -1,0 +1,73 @@
+{% extends "LeonardoBundle::base_styleguide.html.twig" %}
+{% trans_default_domain "styleguide" %}
+
+{% block title %}{{ 'styleguide.title'|trans }}{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="row">
+        <div class="grid-20">
+            <div class="col-one-whole">
+                <h2 class="styleguide-component-main-title">Tooltips</h2>
+            </div>
+        </div>
+    </div>
+    <div class="grid-20">
+        <div class="col-one-half">
+            {{
+                macros.styleguide_component("button", "Botón con un Tooltip", {
+                    "extra_class": ["js-btn-tooltip"],
+                    "text": "Tooltip"
+                } )
+            }}
+
+            <div id="user-toolbar-options" class="tooltip-options">
+                <a class="lnk-blue" href="#">Dos</a>
+                <a class="lnk-blue" href="#">Tres</a>
+                <a class="lnk-blue" href="#">Cuatro</a>
+            </div>
+
+        </div>
+        <div class="col-one-half">
+            <h3 class="styleguide-component-subtitle">
+                Codigo HTML Adicional:
+            </h3>
+            <pre class="prettyprint linenums js-code-block styleguide-component-code" style="display:block">
+{{'<div id="user-toolbar-options" class="tooltip-options">
+    <a class="lnk-blue" href="#">Dos</a>
+    <a class="lnk-blue" href="#">Tres</a>
+    <a class="lnk-blue" href="#">Cuatro</a>
+</div>'|e
+                }}
+            </pre>
+
+            <h3 class="styleguide-component-subtitle">
+                Codigo Javascript adicional:
+            </h3>
+            <pre class="prettyprint linenums js-code-block styleguide-component-code" style="display:block">
+{{'$(function() {
+    $(".js-btn-tooltip").toolbar({
+        content: "#user-toolbar-options",
+        position: "bottom"
+    });
+})'|e}}
+            </pre>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $(function() {
+        $(".js-btn-tooltip").toolbar({
+            content: "#user-toolbar-options",
+            position: 'bottom'
+        });
+    })
+    </script>
+{% endblock %}

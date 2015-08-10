@@ -1,0 +1,139 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+{% trans_default_domain "user" %}
+
+<div class="row user_header">
+    <div class="grid-0 clearfix">
+        <div class="col-one-whole medium-col-one-half large-col-two-thirds">
+            {{
+                macros.ui_component('user-profile',
+                    {
+                        "user": user,
+                        "size": "large",
+                        "content": "city"
+                    })
+            }}
+        </div>
+        <div class="col-one-whole medium-col-one-half large-col-one-third">
+            <div class="user_header_link-wrapper">
+                {% if user.verifiedMobile %}
+                    <div class="user_header_link">
+                        <i class="icon-verified icon-3x"></i>
+                        <span class="user_header_link-sub">
+                            {{ 'verified_mobile'|trans }}
+                        </span>
+                    </div>
+                {% endif %}
+                {% if user.hasTwitter() %}
+                    <a rel="nofollow" target="_blank" href="http://www.twitter.com/{{user.userProfile.twitterUsername}}" class="user_header_link">
+                        <i class="icon-twitter-outline icon-3x"></i>
+                        @{{ user.userProfile.twitterUsername }}
+
+                        {% if twitterFollowersCount and twitterFollowersCount > 0 %}
+                            <span class="user_header_link-sub">
+                                <span>{{ (twitterFollowersCount is defined ? twitterFollowersCount : 0) }}</span>
+                                {% transchoice (twitterFollowersCount is defined ? twitterFollowersCount : 0) %}
+                                   followers
+                                {% endtranschoice %}
+                            </span>
+                        {% endif %}
+                    </a>
+                {% endif %}
+                {% if user.hasFacebook() %}
+                    <a rel="nofollow" target="_blank" href="http://www.facebook.com/{{user.facebookId}}" class="user_header_link">
+                        <i class="icon-facebook-outline icon-3x"></i>
+                        {{ user.userProfile.facebookName }}
+
+                        {% if facebookFriendsCount and facebookFriendsCount > 0 %}
+                            <span class="user_header_link-sub">
+                                <span>{{ (facebookFriendsCount is defined ? facebookFriendsCount : 0) }}</span>
+                                {% transchoice (facebookFriendsCount is defined ? facebookFriendsCount : 0) %}
+                                   friends
+                                {% endtranschoice %}
+                            </span>
+                        {% endif %}
+                    </a>
+                {% endif %}
+
+                {% if app.user and app.user.id == user.id and (not user.verifiedMobile or not user.hasTwitter() or not user.hasFacebook()) %}
+                    {{
+                        macros.ui_component("button", {
+                            "url": path("user_verify"),
+                            "color": "btn-transparent",
+                            "text": "profile.menu.verify"|trans,
+                            "icon": "icon-notifications"
+                        } )
+                    }}
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row user_tabs_wrapper b-margin-40">
+    <div class="grid-0">
+
+        {% if app.user and app.user.id == user.id %}
+            {% set tabs_classes = "col-one-third" %}
+        {% else %}
+            {% set tabs_classes = "col-one-half" %}
+        {% endif %}
+
+        <div class="{{tabs_classes}} centered js-user-selling">
+            <a {% if user.sellingCount == 0 %}rel=”nofollow”{% endif %} href="{{ macros.user_url(user.userProfile.vanityUrl, user.id)|trim }}?status=available" class="user_tabs_link on-left {% if status is not defined or status == "available" %}is-active{% endif %} lnk-dark-gray">
+                <span class="user_tabs_link-content">
+                    <i class="icon-ads-for-sale-big icon-4x"></i>
+                    {% if user.sellingCount > 0 %}
+                        <span class="user_tabs_link-number">
+                            {{ user.sellingCount }}
+                        </span>
+                        &nbsp;
+                    {% endif %}
+                    <span class="user_tabs_link-text">
+                        {% transchoice user.sellingCount %}
+                           tabs.ads_selling
+                        {% endtranschoice %}
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="{{tabs_classes}} centered js-user-sold">
+            <a {% if user.soldCount == 0 %}rel=”nofollow”{% endif %} href="{{ macros.user_url(user.userProfile.vanityUrl, user.id)|trim }}?status=sold" class="user_tabs_link lnk-dark-gray on-left {% if status is defined and status == "sold" %}is-active{% endif %}">
+                <span class="user_tabs_link-content">
+                    <i class="icon-ads-sold-big icon-4x"></i>
+                    {% if user.soldCount > 0 %}
+                        <span class="user_tabs_link-number">
+                            {{ user.soldCount }}
+                        </span>
+                        &nbsp;
+                    {% endif %}
+                    <span class="user_tabs_link-text">
+                        {% transchoice user.soldCount %}
+                           tabs.ads_sold
+                        {% endtranschoice %}
+                    </span>
+            </a>
+        </div>
+
+        {% if app.user and app.user.id == user.id %}
+        <div class="{{tabs_classes}} centered js-user-purchased">
+            <a href="{{ macros.user_url(user.userProfile.vanityUrl, user.id)|trim }}?status=purchase" class="user_tabs_link lnk-dark-gray on-right {% if status is defined and status == "purchase" %}is-active{% endif %}">
+                <span class="user_tabs_link-content">
+                    <i class="icon-ads-bought-big icon-4x"></i>
+                    {% if user.purchaseCount > 0 %}
+                        <span class="user_tabs_link-number">
+                            {{ user.purchaseCount }}
+                        </span>
+                        &nbsp;
+                    {% endif %}
+
+                    <span class="user_tabs_link-text">
+                        {% transchoice user.purchaseCount %}
+                           tabs.ads_purchased
+                        {% endtranschoice %}
+                    </span>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>

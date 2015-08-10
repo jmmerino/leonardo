@@ -1,0 +1,399 @@
+/***************
+/* Button
+/***************/
+
+.btn{
+    @include transition(background-color .3s ease-out);
+    @include border-radius(50px);
+    border: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    line-height: normal;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    //Hack for firefox to not override proxima-nova font in buttons
+    font-family: "proxima-nova" !important;
+    &:before{
+        font-family: "FontAwesome";
+    }
+    &[disabled]{
+        opacity: 0.5;
+    }
+}
+a.btn{
+    display: inline-block;
+}
+
+.btn-two-lines{
+    font-weight: 300;
+    padding: 11px 26px;
+    display: inline-block;
+    text-transform: initial;
+    .btn_content{
+        float: left;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .btn_image{
+        max-width: 35px;
+        max-height: 35px;
+        float: left;
+        margin-right: 5px;
+        position: relative;
+        top: -1px;
+    }
+    .btn_pre-text{
+        display: block;
+        font-size: 12px;
+        text-align: left;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+}
+
+.btn-two-lines--small{
+    font-weight: 300;
+    padding: 7px 10px;
+    display: inline-block;
+    text-transform: initial;
+    .btn_content{
+        float: left;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .btn_image{
+        max-width: 24px;
+        max-height: 24px;
+        float: left;
+        margin-right: 5px;
+        position: relative;
+        top: -1px;
+    }
+    .btn_pre-text{
+        display: block;
+        font-size: 8px;
+        text-align: left;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+}
+
+/***************
+/* Button colors
+/***************/
+
+.btn-no-button{
+    color: $coral-red;
+    border: none;
+    background: transparent;
+    &:hover, &:focus{
+        color: $dark-coral-red;
+        background: transparent;
+    }
+}
+
+.btn-coral-red{
+    background-color: $coral-red;
+    color: white;
+
+    &[disabled]{
+        &:active, &:focus, &:hover{
+            background-color: $coral-red;
+            color: white;
+        }
+    }
+
+    &:active{
+        background-color: $dark-coral-red;
+        color: white;
+    }
+    &:hover, &:focus{
+        background-color: $medium-coral-red;
+        color: white;
+        &:active{
+            background-color: $dark-coral-red;
+            color: white;
+        }
+    }
+    [class*="icon-"]{
+        color: white;
+    }
+}
+
+.btn-white{
+    background-color: white;
+    color: $coral-red;
+    border: 1px solid $coral-red;
+    &[disabled]{
+        &:active, &:focus, &:hover{
+            background-color: white;
+            color: $coral-red;
+        }
+    }
+    &:active, &:focus{
+        background-color: white;
+        color: $dark-coral-red;
+    }
+    &:hover{
+        background-color: $coral-red;
+        color: white;
+        &:active{
+            background-color: $dark-coral-red;
+        }
+        [class*="icon-"]{
+            color: white;
+        }
+    }
+    [class*="icon-"]{
+        color: $coral-red;
+    }
+}
+
+.btn-transparent{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+
+    &[disabled]{
+        &:active, &:focus, &:hover{
+            background-color: rgba(0,0,0,0.3);
+            color: white;
+        }
+    }
+    &:active{
+        background-color: rgba(0,0,0,0.1);
+        color: white;
+    }
+    &:hover, &:focus{
+        background-color: rgba(0,0,0,0.1);
+        color: white;
+        &:active{
+            background-color: rgba(0,0,0,0.2);
+            color: white;
+        }
+    }
+    [class*="icon-"]{
+        color: white;
+    }
+}
+
+// .btn-gray{
+//     background-color: $light-gray;
+//     color: $medium-gray;
+//     &:focus{
+//         background-color: $light-gray;
+//         color: $medium-gray;
+//     }
+//     &:active{
+//         background-color: darken($dark-gray, 10);
+//         color: #dedede;
+//     }
+//     &:hover{
+//         background-color: darken($medium-gray, 10);
+//         color: white;
+//         &:active{
+//             background-color: darken($dark-gray, 10);
+//             color: #dedede;
+//         }
+//     }
+// }
+
+.btn-facebook{
+    background-color: $facebook;
+    color: white;
+    padding: 9px 24px 6px !important;
+    &:active, &:focus{
+        background-color: $facebook;
+        color: white;
+    }
+    &:hover{
+        background-color: darken($facebook, 10);
+        color: white;
+        [class*="icon-"]{
+            color: white;
+        }
+    }
+    [class*="icon-"]{
+        color: white;
+        &:before{
+            font-size: 25px !important;
+        }
+    }
+}
+
+.btn-twitter{
+    background-color: $twitter;
+    color: white;
+    padding: 9px 24px 6px !important;
+    &:active, &:focus{
+        background-color: $twitter;
+        color: white;
+    }
+    &:hover{
+        background-color: darken($twitter, 10);
+        color: white;
+        [class*="icon-"]{
+            color: white;
+        }
+    }
+    [class*="icon-"]{
+        color: white;
+        &:before{
+            font-size: 25px !important;
+        }
+    }
+}
+
+.btn-google-play{
+    background-color: $android;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    .btn_content{
+        top: 4px;
+    }
+    &:hover{
+        background-color: $android;
+        color: white;
+        &:visited, &:active{
+            background-color: $android;
+            color: white;
+        }
+    }
+}
+
+.btn-app-store{
+    font-size: 23px;
+    background-color: #3693f3;
+    color: white;
+    .btn_image{
+        top: -2px;
+    }
+    &:hover{
+        background-color: #3693f3;
+        color: white;
+        &:visited, &:active{
+            background-color: #3693f3;
+            color: white;
+        }
+    }
+}
+
+.btn-enter-web{
+    .btn_image{
+        margin-right: 8px;
+    }
+}
+
+
+/***************
+/* Button sizes
+/***************/
+
+.btn-medium{
+    font-size: 14px;
+    padding: 10px 25px;
+    &.btn-icon{
+        padding: 9px 25px 6px;
+    }
+}
+
+.btn-large{
+    font-size: 16px;
+    padding: 12px 24px;
+}
+
+.btn-small{
+    font-size: 12px;
+    padding: 8px 15px;
+}
+
+.btn-xlarge{
+    font-size: 26px;
+    padding: 18px 35px;
+}
+
+/***************
+/* Button Modifiers
+/***************/
+
+.btn-full-width{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    &.btn-large{
+        font-size: 13px;
+        padding: 14px 0;
+        @include respond-to(x-small) {
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+    }
+}
+
+.btn-inline{
+    display: inline-block;
+}
+
+.btn-icon{
+    position: relative;
+    i{
+        position: relative;
+        top: -1px;
+    }
+    &.btn-medium{
+        i.icon-spin:before{
+            font-size: 15px;
+        }
+        i:before{
+            font-size: 19px;
+        }
+    }
+    &.btn-small{
+        i.icon-spin:before{
+            font-size: 11px;
+        }
+        i:before{
+            font-size: 13px;
+        }
+    }
+    &.btn-large{
+        padding: 6px 24px 4px;
+        i:before{
+            font-size: 30px;
+        }
+    }
+}
+
+
+/*********************************************
+/* Button Overrides (for foundation)
+/*********************************************/
+.btn{
+    margin: 0;
+}
+
+
+
+/**
+ * Some special buttons
+ */
+.btn-delete-icon{
+    @include border-radius(20px);
+    @include box-shadow(0px 0px 0px 1px rgba(255,255,255,0.8));
+    background-color: $coral-red;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    padding: 2px 3px;
+    .icon-x{
+        color: white;
+    }
+}

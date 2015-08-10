@@ -1,0 +1,140 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/user-interface";
+@import "compass/css3/flexbox";
+
+@import "core/vars";
+@import "core/selltagmixins";
+@import "core/grid";
+@import "core/fonts";
+@import "core/headers";
+@import "core/links";
+@import "core/responsive";
+@import "core/utils";
+@import "core/user-color";
+
+/**
+ * COMPONENTS
+ */
+@import "components/buttons";
+@import "components/checkbox";
+@import "components/dropdown";
+@import "components/forms";
+@import "components/image-content";
+@import "components/labels";
+@import "components/pagination";
+@import "components/radiobutton";
+@import "components/text_input";
+@import "components/tooltip";
+@import "components/progress_bar";
+@import "components/noti";
+@import "components/top-bar";
+@import "components/user-profile";
+@import "components/footer";
+@import "components/product-card";
+@import "components/user-header";
+@import "components/user-block";
+@import "components/flexslider";
+@import "components/menu";
+@import "components/last-search-tooltip";
+@import "components/cookie-noticer";
+@import "components/smart-banner";
+
+
+@import "code-theme";
+@import "layout/layout";
+
+pre {
+    font-family: Consolas,monospace;
+    margin-top: 10px;
+    overflow: auto;
+    ol{
+        width: 100%;
+        padding-left: 40px;
+    }
+}
+
+.styleguide-container{
+    padding: 0 20px;
+}
+
+.styleguide-component{
+    display: inline-block;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    width: 100%;
+    border-bottom: 1px solid $light-gray;
+}
+
+.styleguide-component-main-title{
+    font-size: 25px;
+    font-weight: 100;
+    padding: 15px 0 5px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.styleguide-component-title{
+    margin-bottom: 5px;
+}
+
+.styleguide-component-subtitle{
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+.styleguide-component-example{
+    @include box-shadow(0px 1px 0px 0px $light-gray);
+    display: inline-block;
+    width: 100%;
+    min-height: 120px;
+    margin: 40px 0 20px;
+    padding: 20px;
+    background: white;
+    border: 1px solid $light-gray;
+
+    .theme-gray &{
+        background-color: $light-gray;
+    }
+    .theme-blue &{
+        background-color: $medium-blue;
+    }
+    .theme-green &{
+        background-color: $user-green;
+    }
+}
+
+.styleguide_colour{
+    height: 150px;
+}
+.styleguide_colour-block{
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    border:1px solid #eee;
+}
+
+.styleguide-component-code{
+    display: none;
+}
+
+.styleguide-grid{
+    background-color: #eee;
+}
+.styleguide-grid-content{
+    padding: 15px;
+    margin: 5px;
+    background-color: #555;
+    color: white;
+    font-weight: 500;
+    display: block;
+}
+

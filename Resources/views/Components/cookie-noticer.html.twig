@@ -1,0 +1,21 @@
+{% import "SelltagMainBundle:Common:macro.html.twig" as macros %}
+
+<div class="cookie-noticer js-cookie-noticer">
+    <div class="row">
+        <p class="cookie-noticer__message split-left">
+            {{ 'cookies.message'|trans({
+                "%link_start%": "<a rel='nofollow' href='" ~ path('terms') ~ "#cookies' target='_blank'>",
+                "%link_end%": "</a>"
+            })|raw }}
+        </p>
+
+        {{
+            macros.ui_component("button", {
+                "size": "btn-small",
+                "text": "cookies.button.accept"|trans,
+                "extra_class": ["js-btn-accept", "split-right"]
+            } )
+        }}
+    </div>
+
+</div>
